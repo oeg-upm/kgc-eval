@@ -8,7 +8,7 @@ blablabalba
 
 
 ## Engines
-We test the performance and correctness of the RML compliant engines deatiled in the [RML-Implementation-report](http://rml.io/implementation-report/) at 1st October 2019:
+We test the performance and correctness of the RML compliant engines deatiled in the [RML-Implementation-report](http://rml.io/implementation-report/):
 
 - RMLMapper
 - CARML

@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y openjdk-8-jdk vim htop bc wget
+RUN apt-get update && apt-get install -y openjdk-8-jdk vim htop bc wget sort
 RUN mkdir /rmlmapper
 RUN mkdir /results
 RUN mkdir /data

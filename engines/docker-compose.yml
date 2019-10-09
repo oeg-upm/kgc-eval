@@ -1,0 +1,42 @@
+version: "2.3"
+services:
+  rmlmapper:
+    container_name: rmlmapper
+    image: oegdataintegration/rmlmapper:4.5.1
+    volumes:
+      - ../data:/data
+      - ../results/rmlmapper:/results
+      - ../mappings:/mappings
+      - ./rmlmapper:/rmlmapper
+  rocketrml:
+    container_name: rocketrml
+    image: oegdataintegration/rocketrml:1.0.6
+    volumes:
+      - ../data:/data
+      - ../results/rocketrml:/results
+      - ../mappings:/mappings
+      - ./rocketrml:/rocketrml
+  carml:
+    container_name: carml
+    image: oegdataintegration/carml:0.2.3
+    volumes:
+      - ../data:/data
+      - ../results/carml:/results
+      - ../mappings:/mappings
+      - ./carml:/carml
+  sdmrdfizer:
+    container_name: sdmrdfizer
+    image: oegdataintegration/sdmrdfizer:3.2
+    volumes:
+      - ../data:/data
+      - ../results/sdmrdfizer:/results
+      - ../mappings:/mappings
+      - ./sdmrdfizer:/sdmrdfizer
+  rmlstreamer:
+    container_name: rmlstreamer
+    image: oegdataintegration/rmlstreamer:1.1.0
+    volumes:
+      - ../data:/data
+      - ../results/rmlstreamer:/results
+      - ../mappings:/mappings
+      - ./rmlstreamer:/rmlstreamer

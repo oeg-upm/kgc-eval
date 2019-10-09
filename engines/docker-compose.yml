@@ -10,7 +10,7 @@ services:
       - ./rmlmapper:/rmlmapper
   rocketrml:
     container_name: rocketrml
-    image: oegdataintegration/rocketrml:1.0.6
+    image: oegdataintegration/rocketrml:1.0.7
     volumes:
       - ../data:/data
       - ../results/rocketrml:/results

@@ -34,6 +34,7 @@
 @prefix ctdv: <http://bio2rdf.org/ctd_vocabulary:> .
 @prefix meshv: <http://bio2rdf.org/mesh_vocabulary:> .
 @prefix wbv: <http://bio2rdf.org/wormbase_vocabulary:> .
+@prefix gendrv: <http://bio2rdf.org/gendr_vocabulary:> .
 
 @base <http://example.com/base/> .
 
@@ -718,6 +719,301 @@
 	rr:predicateObjectMap [
 		rr:predicateMap	[ rr:constant genagev:article ];
 		rr:objectMap	[ rr:termType rr:Literal; rr:template "http://bio2rdf.org/pubmed:{references}"; rr:datatype xsd:string; ];
+	];
+
+.
+
+
+<TMgendr-manipulations1>
+
+	rml:logicalSource [
+		rml:source "data/gendr/r_gendr_manipulations.csv" ;
+		rml:referenceFormulation ql:CSV ;
+	];
+
+	rr:subjectMap [
+		a rr:Subject;
+		rr:termType rr:IRI;
+		rr:class gendrv:Resource;
+		rr:class gendrv:Dietary-Restriction-Life-Extension-Related-Gene;
+		rr:template "http://bio2rdf.org/gendr:{GenDR_ID}";
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant rdfs:label ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "Dietary restriction life extension related gene{GenDR_ID} [gendr-manipulations:{GenDR_ID}]"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant dcterms:title ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "Dietary restriction life extension related gene{GenDR_ID}"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant dcterms:identifier ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "gendr-manipulations:{GenDR_ID}"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:x-ncbigene ];
+		rr:objectMap	[
+			rr:parentTriplesMap <TMncbigene-gene_info>;
+			rr:joinCondition [ rr:child "entrez_gene_id"; rr:parent "GeneID"; ];
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:gene-name ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "gene_name"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:gene-symbol ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "gene_symbol"; rr:datatype xsd:string; ];
+	];
+
+.
+
+
+<TMgendr-manipulations2>
+
+	rml:logicalSource [
+		rml:source "data/gendr/r_gendr_manipulations.csv" ;
+		rml:referenceFormulation ql:CSV ;
+	];
+
+	rr:subjectMap [
+		a rr:Subject;
+		rr:termType rr:IRI;
+		rr:class gendrv:Gene-Phenotype-Association;
+		rr:template "http://bio2rdf.org/gendr_resource:{GenDR_ID}_{entrez_gene_id}_association";
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant rdfs:label ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "Association between {gene_symbol} and variation in life span extension induced by dietary restriction"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:gene ];
+		rr:objectMap	[
+			rr:parentTriplesMap <TMgendr-manipulations1>;
+			rr:joinCondition [ rr:child "GenDR_ID"; rr:parent "GenDR_ID"; ];
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:phenotype ];
+		rr:objectMap	[ rr:termType rr:IRI; rr:constant "gendrv:Diet-Induced-Life-Span-Variant"; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:x-taxid ];
+		rr:objectMap	[
+			rr:parentTriplesMap <TMtaxonomy-names>;
+			rr:joinCondition [ rr:child "species"; rr:parent "name_txt"; ];
+		];
+	];
+
+.
+
+
+<TMgendr-expression_over1>
+
+	rml:logicalSource [
+		rml:source "data/gendr/r_gendr_expression_over.csv" ;
+		rml:referenceFormulation ql:CSV ;
+	];
+
+	rr:subjectMap [
+		a rr:Subject;
+		rr:termType rr:IRI;
+		rr:class gendrv:Resource;
+		rr:class gendrv:Gene-Expression;
+		rr:template "http://bio2rdf.org/gendr:{MGI_Symbol}{EntrezID}{total}";
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant rdfs:label ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "Dietary restriction induced over-expression of {MGI_Symbol} based on microarray results from {total} datasets, with p-value {p_underexp} [gendr-expression:{MGI_Symbol}{EntrezID}{total}]"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant dcterms:title ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "Dietary restriction induced over-expression of {MGI_Symbol} based on microarray results from {total} datasets, with p-value {p_underexp}"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant dcterms:identifier ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "gendr-expression:{MGI_Symbol}{EntrezID}{total}"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:mgi-gene-symbol ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "MGI_Symbol"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:mgi-gene-description ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "MGI_Description"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:gene ];
+		rr:objectMap	[
+			rr:parentTriplesMap <TMncbigene-gene_info1>;
+			rr:joinCondition [ rr:child "EntrezID"; rr:parent "GeneID"; ];
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:perturbation-context ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:constant "dietary restriction"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:evidence ];
+		rr:objectMap	[
+			rr:parentTriplesMap <TMgendr-expression_over2>;
+			rr:joinCondition [ rr:child "EntrezID"; rr:parent "EntrezID"; ];
+		];
+	];
+
+.
+
+
+<TMgendr-expression_over2>
+
+	rml:logicalSource [
+		rml:source "data/gendr/r_gendr_expression_over.csv" ;
+		rml:referenceFormulation ql:CSV ;
+	];
+
+	rr:subjectMap [
+		a rr:Subject;
+		rr:termType rr:IRI;
+		rr:class gendrv:Resource;
+		rr:template "http://bio2rdf.org/gendr_resource:{MGI_Symbol}{EntrezID}{total}_evidence";
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:total-number-datasets ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "total"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:total-number-datasets-overexp ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "overexp"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:total-number-datasets-underexp ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "underexp"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:p-value ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "p_overexp"; rr:datatype xsd:float; ];
+	];
+
+.
+
+<TMgendr-expression_under1>
+
+	rml:logicalSource [
+		rml:source "data/gendr/r_gendr_expression_under.csv" ;
+		rml:referenceFormulation ql:CSV ;
+	];
+
+	rr:subjectMap [
+		a rr:Subject;
+		rr:termType rr:IRI;
+		rr:class gendrv:Resource;
+		rr:class gendrv:Gene-Expression;
+		rr:template "http://bio2rdf.org/gendr:{MGI_Symbol}{EntrezID}{total}";
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant rdfs:label ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "Dietary restriction induced over-expression of {MGI_Symbol} based on microarray results from {total} datasets, with p-value {p_underexp} [gendr-expression:{MGI_Symbol}{EntrezID}{total}]"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant dcterms:title ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "Dietary restriction induced over-expression of {MGI_Symbol} based on microarray results from {total} datasets, with p-value {p_underexp}"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant dcterms:identifier ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "gendr-expression:{MGI_Symbol}{EntrezID}{total}"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:mgi-gene-symbol ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "MGI_Symbol"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:mgi-gene-description ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "MGI_Description"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:gene ];
+		rr:objectMap	[
+			rr:parentTriplesMap <TMncbigene-gene_info1>;
+			rr:joinCondition [ rr:child "EntrezID"; rr:parent "GeneID"; ];
+		];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:perturbation-context ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:constant "dietary restriction"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:evidence ];
+		rr:objectMap	[
+			rr:parentTriplesMap <TMgendr-expression_under2>;
+			rr:joinCondition [ rr:child "EntrezID"; rr:parent "EntrezID"; ];
+		];
+	];
+
+.
+
+
+<TMgendr-expression_under2>
+
+	rml:logicalSource [
+		rml:source "data/gendr/r_gendr_expression_under.csv" ;
+		rml:referenceFormulation ql:CSV ;
+	];
+
+	rr:subjectMap [
+		a rr:Subject;
+		rr:termType rr:IRI;
+		rr:class gendrv:Resource;
+		rr:template "http://bio2rdf.org/gendr_resource:{MGI_Symbol}{EntrezID}{total}_evidence";
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:total-number-datasets ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "total"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:total-number-datasets-overexp ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "overexp"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:total-number-datasets-underexp ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "underexp"; rr:datatype xsd:string; ];
+	];
+
+	rr:predicateObjectMap [
+		rr:predicateMap	[ rr:constant gendrv:p-value ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "p_underexp"; rr:datatype xsd:float; ];
 	];
 
 .

@@ -8,3 +8,4 @@ do
 	    rm $dataset.zip  
 	fi
 done < synthetic-url.csv
+

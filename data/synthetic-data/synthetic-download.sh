@@ -4,7 +4,7 @@ while IFS=, read -r dataset url
 do
 	if [[ $url =~ ^http.* ]]; then
 	    wget -O $dataset.zip $url
-	    unzip $dataset.zip -d $dataset
+	    unzip $dataset.zip -d .
 	    rm $dataset.zip  
 	fi
-done < gtfs-url.csv
+done < synthetic-url.csv

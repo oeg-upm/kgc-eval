@@ -7,4 +7,4 @@ do
 	    unzip $dataset.zip -d $dataset
 	    rm $dataset.zip  
 	fi
-done < gtfs-url.csv
+done < bio2rdf-url.csv

@@ -41,7 +41,7 @@
 <TMtaxonomy-nodes>
 
 	rml:logicalSource [
-		rml:source "data/taxonomy/tax_nodes.csv" ;
+		rml:source "/data/taxonomy/tax_nodes.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -112,7 +112,7 @@
 <TMtaxonomy-names>
 
 	rml:logicalSource [
-		rml:source "data/taxonomy/tax_names.csv" ;
+		rml:source "/data/taxonomy/tax_names.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -143,7 +143,7 @@
 <TMtaxonomy-division>
 
 	rml:logicalSource [
-		rml:source "data/taxonomy/tax_division.csv" ;
+		rml:source "/data/taxonomy/tax_division.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -189,7 +189,7 @@
 <TMtaxonomy-gencode>
 
 	rml:logicalSource [
-		rml:source "data/taxonomy/tax_gencode.csv" ;
+		rml:source "/data/taxonomy/tax_gencode.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -240,7 +240,7 @@
 <TMncbigene-gene_info>
 
 	rml:logicalSource [
-		rml:source "data/ncbigene/r_gene_info.csv" ;
+		rml:source "/data/ncbigene/r_gene_info.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -349,7 +349,7 @@
 <TMncbigene-gene2ensembl>
 
 	rml:logicalSource [
-		rml:source "data/ncbigene/r_gene2ensembl.csv" ;
+		rml:source "/data/ncbigene/r_gene2ensembl.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -395,7 +395,7 @@
 <TMncbigene-gene2pubmed>
 
 	rml:logicalSource [
-		rml:source "data/ncbigene/ncbi_gene2pubmed.csv" ;
+		rml:source "/data/ncbigene/ncbi_gene2pubmed.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -416,7 +416,7 @@
 <TMncbigene-gene2sts>
 
 	rml:logicalSource [
-		rml:source "data/ncbigene/ncbi_gene2sts.csv" ;
+		rml:source "/data/ncbigene/ncbi_gene2sts.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -437,7 +437,7 @@
 <TMncbigene-gene2unigene>
 
 	rml:logicalSource [
-		rml:source "data/ncbigene/ncbi_gene2unigene.csv" ;
+		rml:source "/data/ncbigene/ncbi_gene2unigene.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -458,7 +458,7 @@
 <TMncbigene-gene2vega>
 
 	rml:logicalSource [
-		rml:source "data/ncbigene/r_gene2vega.csv" ;
+		rml:source "/data/ncbigene/r_gene2vega.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -489,7 +489,7 @@
 <TMhomologene>
 
 	rml:logicalSource [
-		rml:source "data/homologene/homologene.csv" ;
+		rml:source "/data/homologene/homologene.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -553,7 +553,7 @@
 <TMgenage_model>
 
 	rml:logicalSource [
-		rml:source "data/genage/genage_models.csv" ;
+		rml:source "/data/genage/genage_models.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -621,7 +621,7 @@
 <TMgenage_human>
 
 	rml:logicalSource [
-		rml:source "data/genage/genage_human.csv" ;
+		rml:source "/data/genage/genage_human.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -727,7 +727,7 @@
 <TMgendr-manipulations1>
 
 	rml:logicalSource [
-		rml:source "data/gendr/r_gendr_manipulations.csv" ;
+		rml:source "/data/gendr/r_gendr_manipulations.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -778,7 +778,7 @@
 <TMgendr-manipulations2>
 
 	rml:logicalSource [
-		rml:source "data/gendr/r_gendr_manipulations.csv" ;
+		rml:source "/data/gendr/r_gendr_manipulations.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -821,7 +821,7 @@
 <TMgendr-expression_over1>
 
 	rml:logicalSource [
-		rml:source "data/gendr/r_gendr_expression_over.csv" ;
+		rml:source "/data/gendr/r_gendr_expression_over.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -885,7 +885,7 @@
 <TMgendr-expression_over2>
 
 	rml:logicalSource [
-		rml:source "data/gendr/r_gendr_expression_over.csv" ;
+		rml:source "/data/gendr/r_gendr_expression_over.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -921,7 +921,7 @@
 <TMgendr-expression_under1>
 
 	rml:logicalSource [
-		rml:source "data/gendr/r_gendr_expression_under.csv" ;
+		rml:source "/data/gendr/r_gendr_expression_under.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -985,7 +985,7 @@
 <TMgendr-expression_under2>
 
 	rml:logicalSource [
-		rml:source "data/gendr/r_gendr_expression_under.csv" ;
+		rml:source "/data/gendr/r_gendr_expression_under.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1021,7 +1021,7 @@
 <TMhgnc1>
 
 	rml:logicalSource [
-		rml:source "data/hgnc/hgnc.csv" ;
+		rml:source "/data/hgnc/hgnc.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1261,7 +1261,7 @@
 <TMhgnc2>
 
 	rml:logicalSource [
-		rml:source "data/hgnc/hgnc.csv" ;
+		rml:source "/data/hgnc/hgnc.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1302,7 +1302,7 @@
 <TMhgnc3>
 
 	rml:logicalSource [
-		rml:source "data/hgnc/hgnc.csv" ;
+		rml:source "/data/hgnc/hgnc.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1329,7 +1329,7 @@
 <TMlsr1>
 
 	rml:logicalSource [
-		rml:source "data/lsr/lsr.csv" ;
+		rml:source "/data/lsr/lsr.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1466,7 +1466,7 @@
 <TMlsr2>
 
 	rml:logicalSource [
-		rml:source "data/lsr/lsr.csv" ;
+		rml:source "/data/lsr/lsr.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1493,7 +1493,7 @@
 <TMsider-se>
 
 	rml:logicalSource [
-		rml:source "data/sider/meddra_all_indications.csv" ;
+		rml:source "/data/sider/meddra_all_indications.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1545,7 +1545,7 @@
 <TMsider-freq>
 
 	rml:logicalSource [
-		rml:source "data/sider/meddra_freq.csv" ;
+		rml:source "/data/sider/meddra_freq.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1598,7 +1598,7 @@
 <TMsider-indications>
 
 	rml:logicalSource [
-		rml:source "data/sider/meddra_all_indications.csv" ;
+		rml:source "/data/sider/meddra_all_indications.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1650,7 +1650,7 @@
 <TMwormbase-gene_association>
 
 	rml:logicalSource [
-		rml:source "data/wormbase/WB_gene_association.csv" ;
+		rml:source "/data/wormbase/WB_gene_association.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1713,7 +1713,7 @@
 <TMwormbase-geneid>
 
 	rml:logicalSource [
-		rml:source "data/wormbase/WB_geneIDs.csv" ;
+		rml:source "/data/wormbase/WB_geneIDs.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1768,7 +1768,7 @@
 <TMwormbase-interaction>
 
 	rml:logicalSource [
-		rml:source "data/wormbase/WB_interactions.csv" ;
+		rml:source "/data/wormbase/WB_interactions.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1817,7 +1817,7 @@
 <TMwormbase-phenotype_association>
 
 	rml:logicalSource [
-		rml:source "data/wormbase/WB_phenotype_association.csv" ;
+		rml:source "/data/wormbase/WB_phenotype_association.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -1873,7 +1873,7 @@
 <TMiproclass>
 
 	rml:logicalSource [
-		rml:source "data/iproclass/10_iproclass.csv" ;
+		rml:source "/data/iproclass/10_iproclass.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2026,7 +2026,7 @@
 <TMctd-chemicals>
 
 	rml:logicalSource [
-		rml:source "data/ctd/CTD_chemicals.csv" ;
+		rml:source "/data/ctd/CTD_chemicals.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2064,7 +2064,7 @@
 <TMctd-diseases>
 
 	rml:logicalSource [
-		rml:source "data/ctd/CTD_diseases.csv" ;
+		rml:source "/data/ctd/CTD_diseases.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2101,7 +2101,7 @@
 <TMctd-pathways>
 
 	rml:logicalSource [
-		rml:source "data/ctd/CTD_pathways.csv" ;
+		rml:source "/data/ctd/CTD_pathways.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2133,7 +2133,7 @@
 <TMctd-chem_pathways>
 
 	rml:logicalSource [
-		rml:source "data/ctd/CTD_chem_pathways_enriched.csv" ;
+		rml:source "/data/ctd/CTD_chem_pathways_enriched.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2186,7 +2186,7 @@
 <TMctd-chem_gene_inx>
 
 	rml:logicalSource [
-		rml:source "data/ctd/CTD_chem_gene_ixns.csv" ;
+		rml:source "/data/ctd/CTD_chem_gene_ixns.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2252,7 +2252,7 @@
 <TMctd-genes_diseases>
 
 	rml:logicalSource [
-		rml:source "data/ctd/CTD_genes_diseases.csv" ;
+		rml:source "/data/ctd/CTD_genes_diseases.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2320,7 +2320,7 @@
 <TMctd-chemicals_diseases>
 
 	rml:logicalSource [
-		rml:source "data/ctd/CTD_chemicals_diseases.csv" ;
+		rml:source "/data/ctd/CTD_chemicals_diseases.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2381,7 +2381,7 @@
 <TMirefindex1>
 
 	rml:logicalSource [
-		rml:source "data/irefindex/uniq_irefindex.csv" ;
+		rml:source "/data/irefindex/uniq_irefindex.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2489,7 +2489,7 @@
 <TMirefindex2>
 
 	rml:logicalSource [
-		rml:source "data/irefindex/uniq_irefindex.csv" ;
+		rml:source "/data/irefindex/uniq_irefindex.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2547,7 +2547,7 @@
 <TMirefindex3>
 
 	rml:logicalSource [
-		rml:source "data/irefindex/uniq_irefindex.csv" ;
+		rml:source "/data/irefindex/uniq_irefindex.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2605,7 +2605,7 @@
 <TMirefindex4>
 
 	rml:logicalSource [
-		rml:source "data/irefindex/uniq_irefindex.csv" ;
+		rml:source "/data/irefindex/uniq_irefindex.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2656,7 +2656,7 @@
 <TMirefindex5>
 
 	rml:logicalSource [
-		rml:source "data/irefindex/uniq_irefindex.csv" ;
+		rml:source "/data/irefindex/uniq_irefindex.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2699,7 +2699,7 @@
 <TMirefindex6>
 
 	rml:logicalSource [
-		rml:source "data/irefindex/uniq_irefindex.csv" ;
+		rml:source "/data/irefindex/uniq_irefindex.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2726,7 +2726,7 @@
 <TMirefindex7>
 
 	rml:logicalSource [
-		rml:source "data/irefindex/uniq_irefindex.csv" ;
+		rml:source "/data/irefindex/uniq_irefindex.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2754,7 +2754,7 @@
 <TMndc-product1>
 
 	rml:logicalSource [
-		rml:source "data/ndc/product.csv" ;
+		rml:source "/data/ndc/product.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2873,7 +2873,7 @@
 <TMndc-product2>
 
 	rml:logicalSource [
-		rml:source "data/ndc/product.csv" ;
+		rml:source "/data/ndc/product.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 
@@ -2915,7 +2915,7 @@
 <TMndc-package>
 
 	rml:logicalSource [
-		rml:source "data/ndc/package.csv" ;
+		rml:source "/data/ndc/package.csv" ;
 		rml:referenceFormulation ql:CSV ;
 	];
 

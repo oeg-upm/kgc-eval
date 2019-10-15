@@ -17,13 +17,13 @@ do
 		dur=$(echo "$finish - $start" | bc)
 		if [ $exit_status -eq 124 ]
 		then
-			echo "bio2rdf,TimeOut">>/results/results-times-bio2rdf.csv
+			echo "bio2rdf,$t,TimeOut">>/results/results-times-bio2rdf.csv
 			total=0
 			break
 		else
 			sort /results/bio2rdf.nt
 			lines=$(< "/results/bio2rdf.nt" wc - l)
-			echo "gtfs,$j,$lines,$dur">>/results/results-times-bio2rdf-detail.csv
+			echo "gtfs,$t,$j,$lines,$dur">>/results/results-times-bio2rdf-detail.csv
 			total=$(($total + $dur))
 			if [ $j -ne 5 ]
 			then
@@ -34,7 +34,7 @@ do
 	if [ $total -ne 0 ]
 	then
 		total=$(($total / 5))
-		echo "bio2rdf,$total">>/results/results-times-bio2rdf.csv
+		echo "bio2rdf,$t,$total">>/results/results-times-bio2rdf.csv
 	fi
 done
 

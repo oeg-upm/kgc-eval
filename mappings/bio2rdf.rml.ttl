@@ -155,11 +155,6 @@
 	];
 
 	rr:predicateObjectMap [
-		rr:predicateMap	[ rr:constant rdf:type ];
-		rr:objectMap	[ rr:termType rr:IRI; rr:constant "taxv:Division"; ];
-	];
-
-	rr:predicateObjectMap [
 		rr:predicateMap	[ rr:constant rdfs:label ];
 		rr:objectMap	[ rr:termType rr:Literal; rr:template "{division_name} [taxonomy_resource:division-id-{division_id}]"; rr:datatype xsd:string; ];
 	];
@@ -198,11 +193,6 @@
 		rr:termType rr:IRI;
 		rr:class taxv:Genetic-Code;
 		rr:template "http://bio2rdf.org/taxonomy_resource:genetic-code-id-{genetic_code_id}";
-	];
-
-	rr:predicateObjectMap [
-		rr:predicateMap	[ rr:constant rdf:type ];
-		rr:objectMap	[ rr:termType rr:IRI; rr:constant "taxv:Genetic-Code"; ];
 	];
 
 	rr:predicateObjectMap [
@@ -248,17 +238,8 @@
 		a rr:Subject;
 		rr:termType rr:IRI;
 		rr:class ncbiv:Resource;
+		rr:class ndbiv:Gene;
 		rr:template "http://bio2rdf.org/ncbigene:{GeneID}";
-	];
-
-	rr:predicateObjectMap [
-		rr:predicateMap	[ rr:constant rdf:type ];
-		rr:objectMap	[ rr:termType rr:IRI; rr:constant "ncbiv:Gene"; ];
-	];
-
-	rr:predicateObjectMap [
-		rr:predicateMap	[ rr:constant rdf:type ];
-		rr:objectMap	[ rr:termType rr:IRI; rr:template "ncbiv:{type_of_gene}-Gene"; ];
 	];
 
 	rr:predicateObjectMap [
@@ -1608,11 +1589,6 @@
 		rr:class sidv:Resource;
 		rr:class sidv:Drug-Indication-Association;
 		rr:template "http://bio2rdf.org/sider:{STITCH_ID_flat}_{UMLS_ID}";
-	];
-
-	rr:predicateObjectMap [
-		rr:predicateMap	[ rr:constant rdf:type ];
-		rr:objectMap	[ rr:termType rr:IRI; rr:constant "sidv:Drug-Indication-Association"; ];
 	];
 
 	rr:predicateObjectMap [

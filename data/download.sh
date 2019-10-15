@@ -1,6 +1,8 @@
 #!/bin/bash
 
-
-./madrid-gtfs/gtfs-download.sh
-./bio2rdf/bio2rdf-download.sh
-./synthetic-data/synthetic-download.sh
+cd madrid-gtfs
+./gtfs-download.sh
+cd ../bio2rdf
+./bio2rdf-download.sh
+cd ../synthetic-data
+./synthetic-download.sh

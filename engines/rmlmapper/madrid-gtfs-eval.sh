@@ -23,8 +23,12 @@ do
 			break
 		else
 			lines=$(< "/results/gtfs-$i-$j.nt" wc - l)
-			echo "gtfs-$i,$run,$lines,$dur">>/results/results-times-gtfs-detail.csv
+			echo "gtfs-$i,$j,$lines,$dur">>/results/results-times-gtfs-detail.csv
 			total=$(($total + $dur))
+			if [ $j -ne 5 ]
+			then
+				rm /results/gtfs-$i-$j.nt
+			fi
 		fi
 	done
 	if [ $total -ne 0 ]

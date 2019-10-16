@@ -14,7 +14,7 @@ do
 		for j in 1 2 3 4 5
 		do
 			start=$(date +%s.%N)
-			timeout 10h python3 /sdmrdfizer/rdfizer/run_rdfizer.py /sdmrdfizer/configs/madrid-gtfs-config-$t.ini
+			timeout 10h python3 /sdmrdfizer/rdfizer/run_rdfizer.py /sdmrdfizer/configs/madrid-gtfs-config.ini
 			exit_status=$?
 			finish=$(date +%s.%N)
 			dur=$(echo "$finish - $start" | bc)
@@ -34,11 +34,13 @@ do
 				fi
 			fi
 		done
+		mv /results/gtfs.nt /results/gtfs-$t-$i.nt
 		if [ $total -ne 0 ]
 		then
 			total=$(($total / 5))
 			echo "gtfs-$i,$t,$total">>/results/results-times-gtfs.csv
 		fi
-	done	
+	done
+	sed -i 's/enrichment: yes/enrichment: no/g' /sdmrdfizer/configs/madrid-gtfs-config.ini	
 done
 rm /data/*.csv

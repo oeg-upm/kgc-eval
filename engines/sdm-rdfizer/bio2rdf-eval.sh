@@ -11,7 +11,7 @@ do
 	for j in 1 2 3 4 5
 	do
 		start=$(date +%s.%N)
-		timeout 10h python3 /sdmrdfizer/rdfizer/run_rdfizer.py /sdmrdfizer/configs/bio2rdf-config-$t.ini
+		timeout 10h python3 /sdmrdfizer/rdfizer/run_rdfizer.py /sdmrdfizer/configs/bio2rdf-config.ini
 		exit_status=$?
 		finish=$(date +%s.%N)
 		dur=$(echo "$finish - $start" | bc)
@@ -31,10 +31,12 @@ do
 			fi
 		fi
 	done
+	mv /results/bio2rdf.nt /results/bio2rdf-$t.nt
 	if [ $total -ne 0 ]
 	then
 		total=$(($total / 5))
 		echo "bio2rdf,$t,$total">>/results/results-times-bio2rdf.csv
 	fi
+	sed -i 's/enrichment: yes/enrichment: no/g' /sdmrdfizer/configs/bio2rdf-config.ini 
 done
 

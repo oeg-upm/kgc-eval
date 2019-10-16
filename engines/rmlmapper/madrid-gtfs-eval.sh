@@ -15,13 +15,13 @@ do
 		exit_status=$?
 		finish=$(date +%s.%N)
 		dur=$(echo "$finish - $start" | bc)
-		sort /results/gtfs-$i-$j.nt
 		if [ $exit_status -eq 124 ]
 		then
 			echo "gtfs-$i,TimeOut">>/results/results-times-gtfs.csv
 			total=0
 			break
 		else
+			sort /results/gtfs-$i-$j.nt
 			lines=$(< "/results/gtfs-$i-$j.nt" wc - l)
 			echo "gtfs-$i,$j,$lines,$dur">>/results/results-times-gtfs-detail.csv
 			total=$(($total + $dur))

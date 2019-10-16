@@ -53,5 +53,5 @@
 :om_1 a rr:ObjectMap;
     rr:parentTriplesMap :map_table2_0;
     rr:joinCondition :jc_0.
-:jc_0 rr:child "P1";
-    rr:parent "P1".
+:jc_0 rr:child "P01";
+    rr:parent "P01".

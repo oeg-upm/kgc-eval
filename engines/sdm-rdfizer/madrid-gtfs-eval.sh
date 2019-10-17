@@ -1,8 +1,8 @@
 #!/bin/bash
 
 rm /results/*
-echo "dataset,type,time">>/results/results-times-gtfs.csv
-echo "dataset,type,run,results,time">>/results/results-times-gtfs-detail.csv
+echo "dataset,config,time">>/results/results-times-gtfs.csv
+echo "dataset,config,run,results,time">>/results/results-times-gtfs-detail.csv
 declare -a configs=("enrich" "noenrich")
 
 for t in "${configs[@]}"

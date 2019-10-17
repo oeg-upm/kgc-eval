@@ -1,8 +1,8 @@
 #!/bin/bash
 
 rm /results/*
-echo "dataset,size,type,columns,time">>/results/results-times-naive.csv
-echo "dataset,size,type,columns,run,results,time">>/results/results-times-naive-detail.csv
+echo "dataset,config,size,columns,time">>/results/results-times-naive.csv
+echo "dataset,config,size,columns,run,results,time">>/results/results-times-naive-detail.csv
 declare -a configs=("enrich" "noenrich")
 
 for type in "${configs[@]}"
@@ -22,25 +22,25 @@ do
 				dur=$(echo "$finish - $start" | bc)
 				if [ $exit_status -eq 124 ]
 				then
-					echo "synthetic-naive,$i,$type,$j,TimeOut">>/results/results-times-naive.csv
+					echo "synthetic-naive,$type,$i,$j,TimeOut">>/results/results-times-naive.csv
 					total=0
 					break
 				else
-					sort /results/synthetic-naive.nt 
-					lines=$(< "/results/synthetic-naive.nt" wc - l)
-					echo "synthetic-naive,$i,$type,$j,$t,$lines,$dur">>/results/results-times-naive-detail.csv
+					sort /results/naive.nt 
+					lines=$(< "/results/naive.nt" wc - l)
+					echo "synthetic-naive,$type,$i,$j,$t,$lines,$dur">>/results/results-times-naive-detail.csv
 					total=$(($total + $dur))
 					if [ $j -ne 5 ]
 					then
-						rm /results/synthetic-naive.nt						
+						rm /results/naive.nt						
 					fi
 				fi
 			done
-			mv /results/synthetic-naive.nt /results/synthetic-naive-$t-$i-$j.nt
+			mv /results/naive.nt /results/synthetic-naive-$type-$i-$j.nt
 			if [ $total -ne 0 ]
 			then
 				total=$(($total / 5))
-				echo "synthetic-naive,$i,$type,$j,$total">>/results/results-times-naive.csv
+				echo "synthetic-naive,$type,$i,$j,$total">>/results/results-times-naive.csv
 			fi	
 		done
 	done

@@ -1,12 +1,12 @@
 # Evaluation of Knowledge Graph Creation Engines
-In this repository we describe the resources we use to evaluate the current approaches focused on creating Knowledge Graph using declarative mapping languages (RML in this case). We have selected a set of relevant use cases covering relevant paremeters that affect to this process and we report in a [previous work](https://www.researchgate.net/publication/336220947_What_are_the_Parameters_that_Affect_the_Construction_of_a_Knowledge_Graph). We also create the corresponding mappings and create docker images to run each selected engine to ensure the reproducibility of our experiments.
+In this repository we describe the resources we use to evaluate the current approaches focused on creating Knowledge Graph using declarative mapping languages (RML in this case). We have selected a set of relevant use cases covering relevant paremeters that affect to this process and we report in a [previous work](https://link.springer.com/chapter/10.1007/978-3-030-33246-4_43). We create the corresponding mappings, create docker images and the bash scripts to run each selected engine to ensure the reproducibility of our experiments.
 
 ## Use Cases
 We include 4 different uses cases to evaluate this engines:
-- Bio2RDF project: 
-- GTFS-Madrid-Bench:
-- IASIS project:
-- Synthetic data: 
+- Bio2RDF project: [https://github.com/bio2rdf](https://github.com/bio2rdf)
+- GTFS-Madrid-Bench: [https://github.com/oeg-upm/gtfs-bench](https://github.com/oeg-upm/gtfs-bench)
+- Synthetic data: [https://github.com/SDM-TIB/KGC-Param-Eval](https://github.com/SDM-TIB/KGC-Param-Eval)
+- IASIS project: [http://project-iasis.eu/](http://project-iasis.eu/)
 
 We have prepared a set of scripts in bash to download the data and prepared for the experimentation (please, note that the data from IASIS project is not open so we cannot provide it).
 

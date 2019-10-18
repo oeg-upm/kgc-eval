@@ -1056,7 +1056,7 @@
 		rr:predicateMap	[ rr:constant hgncv:locus ];
 		rr:objectMap	[
 			rr:parentTriplesMap <TMhgnc3>;
-			rr:joinCondition [ rr:child "HGNC ID"; rr:parent "HGNC_ID"; ];
+			rr:joinCondition [ rr:child "HGNC_ID"; rr:parent "HGNC_ID"; ];
 		];
 	];
 
@@ -1256,7 +1256,7 @@
 
 	rr:predicateObjectMap [
 		rr:predicateMap	[ rr:constant rdfs:label ];
-		rr:objectMap	[ rr:termType rr:Literal; rr:template "{Approved_Symbol} [hgnc.symbol:{Approved Symbol}]"; rr:datatype xsd:string; ];
+		rr:objectMap	[ rr:termType rr:Literal; rr:template "{Approved_Symbol} [hgnc.symbol:{Approved_Symbol}]"; rr:datatype xsd:string; ];
 	];
 
 	rr:predicateObjectMap [
@@ -1273,7 +1273,7 @@
 		rr:predicateMap	[ rr:constant hgncv:is-approved-symbol-of ];
 		rr:objectMap	[
 			rr:parentTriplesMap <TMhgnc1>;
-			rr:joinCondition [ rr:child "Approved Symbol"; rr:parent "Approved_Symbol"; ];
+			rr:joinCondition [ rr:child "Approved_Symbol"; rr:parent "Approved_Symbol"; ];
 		];
 	];
 
@@ -2440,10 +2440,7 @@
 
 	rr:predicateObjectMap [
 		rr:predicateMap	[ rr:constant iriv:host-organism ];
-		rr:objectMap	[
-			rr:parentTriplesMap <TMtaxonomy-nodes>;
-			rr:joinCondition [ rr:child "<FunctionMap8>"; rr:parent "tax_id"; ];
-		];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "Host_organism_taxid"; rr:datatype xsd:string; ];
 	];
 
 	rr:predicateObjectMap [
@@ -2497,11 +2494,8 @@
 	];
 
 	rr:predicateObjectMap [
-		rr:predicateMap	[ rr:constant iriv:x-taxonomy ];
-		rr:objectMap	[
-			rr:parentTriplesMap <TMtaxonomy-nodes>;
-			rr:joinCondition [ rr:child "<FunctionMap6>"; rr:parent "tax_id"; ];
-		];
+		rr:predicateMap	[ rr:constant iriv:taxonomy ];
+		rr:objectMap	rr:objectMap	[ rr:termType rr:Literal; rml:reference "taxa"; rr:datatype xsd:string; ];
 	];
 
 	rr:predicateObjectMap [
@@ -2555,11 +2549,8 @@
 	];
 
 	rr:predicateObjectMap [
-		rr:predicateMap	[ rr:constant iriv:x-taxonomy ];
-		rr:objectMap	[
-			rr:parentTriplesMap <TMtaxonomy-nodes>;
-			rr:joinCondition [ rr:child "<FunctionMap7>"; rr:parent "tax_id"; ];
-		];
+		rr:predicateMap	[ rr:constant iriv:taxonomy ];
+		rr:objectMap	[ rr:termType rr:Literal; rml:reference "taxb"; rr:datatype xsd:string; ];
 	];
 
 	rr:predicateObjectMap [
@@ -2839,7 +2830,9 @@
 		rr:predicateMap	[ rr:constant ndcv:has-part ];
 		rr:objectMap	[
 			rr:parentTriplesMap <TMndc-product2>;
-			rr:joinCondition [ rr:child "{ACTIVE_NUMERATOR_STRENGTH}{ACTIVE_INGRED_UNIT}{SUBSTANCENAME}"; rr:parent "{ACTIVE_NUMERATOR_STRENGTH}{ACTIVE_INGRED_UNIT}{SUBSTANCENAME}"; ];
+			rr:joinCondition [ rr:child "ACTIVE_NUMERATOR_STRENGTH"; rr:parent "ACTIVE_NUMERATOR_STRENGTH"; ];
+			rr:joinCondition [ rr:child "ACTIVE_INGRED_UNIT"; rr:parent "ACTIVE_INGRED_UNIT"; ];
+			rr:joinCondition [ rr:child "SUBSTANCENAME"; rr:parent "SUBSTANCENAME"; ];
 		];
 	];
 

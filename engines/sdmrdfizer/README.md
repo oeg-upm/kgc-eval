@@ -13,7 +13,7 @@ docker exec -it sdmrdfizer /sdmrdfizer/SCRIPT.sh
 ```
 docker exec -it sdmrdfizer /sdmrdfizer/evaluate.sh
 ```
-- Run your own case (put your data in the data folder and your config file in the config folder of sdmrdfizer)
+- Run your own case (put your data in the root data folder, your mapping in the root mapping folder and your config file in the config folder of sdmrdfizer)
 ```
 docker exec -it sdmrdfizer python3 /sdmrdfizer/rdfizer/run_rdfizer.py /sdmrdfizer/configs/YOUR-CONFIG-FILE.ini
 ```

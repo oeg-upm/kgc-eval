@@ -23,7 +23,7 @@ do
 				do
 					start=$(date +%s.%N)
 					if []
-					timeout 10h java -jar /carml/carml.jar -m /mappings/synthetic/$type_$dup_$case.rml.ttl -o /results/synthetic-partitioning-$i-$type-$dup-$case.nt
+					timeout 10h /rmlstreamer/run.sh -p /mappings/synthetic/$type_$dup_$case.rml.ttl -o /results/synthetic-partitioning-$i-$type-$dup-$case.nt
 					exit_status=$?
 					finish=$(date +%s.%N)
 					dur=$(echo "$finish - $start" | bc)

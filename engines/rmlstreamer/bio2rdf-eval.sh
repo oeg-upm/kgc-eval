@@ -9,7 +9,7 @@ total=0
 for j in 1 2 3 4 5
 do
 	start=$(date +%s.%N)
-	timeout 10h java -jar /carml/carml.jar -m /mappings/bio2rdf.rml.ttl -o /results/bio2rdf-$j.nt
+	timeout 10h /rmlstreamer/run.sh -p /mappings/bio2rdf.rml.ttl -o /results/bio2rdf-$j.nt
 	exit_status=$?
 	finish=$(date +%s.%N)
 	dur=$(echo "$finish - $start" | bc)

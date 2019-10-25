@@ -15,7 +15,7 @@ docker exec -it rmlstreamer /rmlstreamer/evaluate.sh
 ```
 - Run your own case (put your data in the root data folder and your mapping in the root mapping folder)
 ```
-docker exec -it rmlstreamer ./run.sh -p /mappings/YOURMAPPING.rml.ttl -o /results/output.ttl
+docker exec -it rmlstreamer /rmlstreamer/run.sh -p /mappings/YOURMAPPING.rml.ttl -o /results/output.ttl
 ```
 
 

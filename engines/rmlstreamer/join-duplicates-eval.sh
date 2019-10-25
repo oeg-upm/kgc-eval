@@ -17,7 +17,7 @@ do
 			for t in 1 2 3 4 5
 			do
 				start=$(date +%s.%N)
-				timeout 10h java -jar /carml/carml.jar -m /mappings/synthetic/standard.rml.ttl -o /results/synthetic-join-duplicates-$i-$j-$u-$t.nt
+				timeout 10h /rmlstreamer/run.sh -p /mappings/synthetic/standard.rml.ttl -o /results/synthetic-join-duplicates-$i-$j-$u-$t.nt
 				exit_status=$?
 				finish=$(date +%s.%N)
 				dur=$(echo "$finish - $start" | bc)

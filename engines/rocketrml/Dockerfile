@@ -10,5 +10,6 @@ RUN mkdir /rocketrml
 RUN mkdir /results
 RUN mkdir /data
 RUN mkdir /mappings
+COPY . /rocketrml/
 
 CMD ["tail", "-f", "/dev/null"]

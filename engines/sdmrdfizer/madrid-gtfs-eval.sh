@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rm /results/*
-echo "dataset,config,time">>/results/results-times-gtfs.csv
+echo "dataset,config,results,time">>/results/results-times-gtfs.csv
 echo "dataset,config,run,results,time">>/results/results-times-gtfs-detail.csv
 declare -a configs=("enrich" "noenrich")
 
@@ -18,29 +18,26 @@ do
 			exit_status=$?
 			finish=$(date +%s.%N)
 			dur=$(echo "$finish - $start" | bc)
-			if [ $exit_status -eq 124 ]
-			then
-				echo "gtfs-$i,$t,TimeOut">>/results/results-times-gtfs.csv
+			if [ $exit_status -eq 124 ];then
+				echo "gtfs-$i,$t,$j,0,TimeOut">>/results/results-times-gtfs.csv
 				total=0
 				break
 			else
-				sort /results/gtfs.nt
-				lines=$(< "/results/gtfs.nt" wc - l)
+				lines=$(cat "/results/gtfs.nt" | wc -l)
 				echo "gtfs-$i,$t,$j,$lines,$dur">>/results/results-times-gtfs-detail.csv
-				total=$(($total + $dur))
-				if [ $j -ne 5 ]
-				then
+				total=$(echo "$total+$dur" | bc)
+				echo $total
+				if [ $j -ne 5 ];then
 					rm /results/gtfs.nt
 				fi
 			fi
 		done
 		mv /results/gtfs.nt /results/gtfs-$t-$i.nt
-		if [ $total -ne 0 ]
-		then
-			total=$(($total / 5))
-			echo "gtfs-$i,$t,$total">>/results/results-times-gtfs.csv
+		if (( $(echo "$total > 0" | bc -l) ));then
+			total=$(echo "$total/5" | bc -l)
+			echo "gtfs-$i,$t,$lines,$total">>/results/results-times-gtfs.csv
 		fi
 	done
-	sed -i 's/enrichment: yes/enrichment: no/g' /sdmrdfizer/configs/madrid-gtfs-config.ini	
+	#sed -i 's/enrichment: yes/enrichment: no/g' /sdmrdfizer/configs/madrid-gtfs-config.ini	
 done
 rm /data/*.csv

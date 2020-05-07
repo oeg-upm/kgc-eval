@@ -3,7 +3,7 @@
 rm /results/*
 echo "dataset,config,results,time">>/results/results-times-gtfs.csv
 echo "dataset,config,run,results,time">>/results/results-times-gtfs-detail.csv
-declare -a configs=("enrich" "noenrich")
+declare -a configs=("noenrich")
 
 for t in "${configs[@]}"
 do
@@ -13,6 +13,7 @@ do
 		total=0
 		for j in 1 2 3 4 5
 		do
+			echo "---Running size GTFS-$i in time $j"
 			start=$(date +%s.%N)
 			timeout 10h python3 /sdmrdfizer/rdfizer/run_rdfizer.py /sdmrdfizer/configs/madrid-gtfs-config.ini
 			exit_status=$?
@@ -26,7 +27,6 @@ do
 				lines=$(cat "/results/gtfs.nt" | wc -l)
 				echo "gtfs-$i,$t,$j,$lines,$dur">>/results/results-times-gtfs-detail.csv
 				total=$(echo "$total+$dur" | bc)
-				echo $total
 				if [ $j -ne 5 ];then
 					rm /results/gtfs.nt
 				fi
@@ -38,6 +38,6 @@ do
 			echo "gtfs-$i,$t,$lines,$total">>/results/results-times-gtfs.csv
 		fi
 	done
-	#sed -i 's/enrichment: yes/enrichment: no/g' /sdmrdfizer/configs/madrid-gtfs-config.ini	
+	sed -i 's/enrichment: yes/enrichment: no/g' /sdmrdfizer/configs/madrid-gtfs-config.ini	
 done
 rm /data/*.csv

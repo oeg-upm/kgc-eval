@@ -35,7 +35,7 @@ const doMapping = async () => {
     xmlPerformanceMode: false
   };
   const result = await parser.parseFileLive(mapping, inputFiles, options).catch((err) => { console.log(err); });
-  fs.appendFile('output.nt', result, function (err) {
+  fs.appendFile('/results/gtfs.nt', result, function (err) {
     if (err) throw err;
     console.log('Saved!');
   });

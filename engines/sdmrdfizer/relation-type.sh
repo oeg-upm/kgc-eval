@@ -1,7 +1,7 @@
 #!/bin/bash
 
-rm /results/*
-echo "dataset,config,type,size,percent,N,M,time">>/results/results-times-relation-type.csv
+rm /results/synthetic-relation-type/*
+echo "dataset,config,type,size,percent,N,M,results,time">>/results/results-times-relation-type.csv
 echo "dataset,config,type,size,percent,N,M,run,results,time">>/results/results-times-relation-type-detail.csv
 declare -a configs=("enrich" "noenrich")
 
@@ -37,7 +37,7 @@ do
 						finish=$(date +%s.%N)
 						dur=$(echo "$finish - $start" | bc)
 						if [ $exit_status -eq 124 ];then
-							echo "synthetic-relation-type,$config,$type,$i,$j,$u,1,TimeOut">>/results/results-times-relation-type.csv
+							echo "synthetic-relation-type,$config,$type,$i,$j,$u,1,0,TimeOut">>/results/results-times-relation-type.csv
 							total=0
 							break
 						else
@@ -52,7 +52,7 @@ do
 					mv /results/relation-type.nt /results/synthetic-relation-type-$config-$type-$i-$j-$u.nt
 					if (( $(echo "$total > 0" | bc -l) ));then	
 						total=$(echo "$total/5" | bc -l)
-						echo "synthetic-relation-type,$config,$type,$i,$j,$u,1,$total">>/results/results-times-relation-type.csv
+						echo "synthetic-relation-type,$config,$type,$i,$j,$u,1,$lines,$total">>/results/results-times-relation-type.csv
 					fi
 				done
 			done
@@ -87,7 +87,7 @@ do
 						finish=$(date +%s.%N)
 						dur=$(echo "$finish - $start" | bc)
 						if [ $exit_status -eq 124 ];then
-							echo "synthetic-relation-type,$config,n-m,$i,$j,$u,$z,TimeOut">>/results/results-times-relation-type.csv
+							echo "synthetic-relation-type,$config,n-m,$i,$j,$u,$z,0,TimeOut">>/results/results-times-relation-type.csv
 							total=0
 							break
 						else
@@ -102,7 +102,7 @@ do
 					mv /results/relation-type.nt /results/synthetic-relation-type-$config-n-m-$i-$j-$u-$z.nt
 					if (( $(echo "$total > 0" | bc -l) ));then
 						total=$(echo "$total/5" | bc -l)
-						echo "synthetic-relation-type,$config,n-m,$i,$j,$u,$z,$total">>/results/results-times-relation-type.csv
+						echo "synthetic-relation-type,$config,n-m,$i,$j,$u,$z,$lines,$total">>/results/results-times-relation-type.csv
 					fi
 				done
 			done
@@ -112,7 +112,9 @@ do
 done
 
 rm /data/*.csv
-
+mkidr /results/synthetic-relation-type
+cp /results/*.csv /results/synthetic-relation-type/
+cp /results/*.nt /results/synthetic-relation-type/
 
 
 

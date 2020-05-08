@@ -22,11 +22,11 @@ do
 				for u in 5 10 15
 				do
 					if [ $r -eq 1 ];then
-						cp /data/synthetic-data/relation-type/$type/$ik_rows/table1.csv /data/table1.csv
-						cp /data/synthetic-data/relation-type/$type/$ik_rows/table2_50_$u_$j_percent.csv /data/table2.csv
+						cp /data/synthetic-data/relation-type/$type/${i}k_rows/table1.csv /data/table1.csv
+						cp /data/synthetic-data/relation-type/$type/${i}k_rows/table2_50_${u}_${j}_percent.csv /data/table2.csv
 					else
-						cp /data/synthetic-data/relation-type/$type/$ik_rows/table1_50_$u_$j_percent.csv /data/table1.csv
-						cp /data/synthetic-data/relation-type/$type/$ik_rows/table2.csv /data/table2.csv
+						cp /data/synthetic-data/relation-type/$type/${i}k_rows/table1_50_${u}_${j}_percent.csv /data/table1.csv
+						cp /data/synthetic-data/relation-type/$type/${i}k_rows/table2.csv /data/table2.csv
 					fi
 					for t in 1 2 3 4 5
 					do
@@ -74,8 +74,8 @@ do
 			do
 				for j in 10 25 50
 				do
-					cp /data/synthetic-data/relation-type/n-m/$ik_rows/table1_50_$u_$z_$j_percent.csv /data/table1.csv
-					cp /data/synthetic-data/relation-type/n-m/$ik_rows/table2_50_$u_$z_$j_percent.csv /data/table2.csv
+					cp /data/synthetic-data/relation-type/n-m/${i}k_rows/table1_50_${u}_${z}_${j}_percent.csv /data/table1.csv
+					cp /data/synthetic-data/relation-type/n-m/${i}k_rows/table2_50_${u}_${z}_${j}_percent.csv /data/table2.csv
 					for t in 1 2 3 4 5
 					do
 						start=$(date +%s.%N)

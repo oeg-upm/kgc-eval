@@ -10,24 +10,22 @@ for config in "${configs[@]}"
 do
 	for r in 1 2
 	do
-		if [ r -eq 1 ]
-		then
+		if [ $r -eq 1 ];then
 			type="one-n"
 		else
 			type="n-one"
 		fi
-		for i in 1 3 10 50
+		for i in 1 3 10 50 100
 		do
 			for j in 25 50
 			do
 				for u in 5 10 15
 				do
-					if [ r -eq 1 ]
-					then
+					if [ $r -eq 1 ];then
 						cp /data/synthetic-data/relation-type/$type/$ik_rows/table1.csv /data/table1.csv
 						cp /data/synthetic-data/relation-type/$type/$ik_rows/table2_50_$u_$j_percent.csv /data/table2.csv
 					else
-						cp /data/synthetic-data/relation-type/$type/$ik_rows/table1_50_$u_$j_percent.csv.csv /data/table1.csv
+						cp /data/synthetic-data/relation-type/$type/$ik_rows/table1_50_$u_$j_percent.csv /data/table1.csv
 						cp /data/synthetic-data/relation-type/$type/$ik_rows/table2.csv /data/table2.csv
 					fi
 					for t in 1 2 3 4 5
@@ -37,26 +35,22 @@ do
 						exit_status=$?
 						finish=$(date +%s.%N)
 						dur=$(echo "$finish - $start" | bc)
-						if [ $exit_status -eq 124 ]
-						then
+						if [ $exit_status -eq 124 ];then
 							echo "synthetic-relation-type,$config,$type,$i,$j,$u,1,TimeOut">>/results/results-times-relation-type.csv
 							total=0
 							break
 						else
-							sort /results/relation-type.nt
-							lines=$(< "/results/relation-type.nt" wc - l)
+							lines=$(cat "/results/relation-type.nt" | wc -l)
 							echo "synthetic-relation-type,$config,$type,$i,$j,$u,1,$t,$lines,$dur">>/results/results-times-relation-type-detail.csv
-							total=$(($total + $dur))
-							if [ $j -ne 5 ]
-							then
+							total=$(echo "$total+$dur" | bc)
+							if [ $j -ne 5 ];then
 								rm /results/relation-type.nt
 							fi
 						fi
 					done
 					mv /results/relation-type.nt /results/synthetic-relation-type-$config-$type-$i-$j-$u.nt
-					if [ $total -ne 0 ]
-					then
-						total=$(($total / 5))
+					if (( $(echo "$total > 0" | bc -l) ));then	
+						total=$(echo "$total/5" | bc -l)
 						echo "synthetic-relation-type,$config,$type,$i,$j,$u,1,$total">>/results/results-times-relation-type.csv
 					fi
 				done
@@ -72,7 +66,7 @@ sed -i 's/standard.rml.ttl/n_m.rml.ttl/g' /sdmrdfizer/configs/relation-type-conf
 
 for config in "${configs[@]}"
 do
-	for i in 1 3 10 50
+	for i in 1 3 10 50 100
 	do
 		for u in 3 5 10
 		do
@@ -89,26 +83,22 @@ do
 						exit_status=$?
 						finish=$(date +%s.%N)
 						dur=$(echo "$finish - $start" | bc)
-						if [ $exit_status -eq 124 ]
-						then
+						if [ $exit_status -eq 124 ];then
 							echo "synthetic-relation-type,$config,n-m,$i,$j,$u,$z,TimeOut">>/results/results-times-relation-type.csv
 							total=0
 							break
 						else
-							sort /results/relation-type.nt
-							lines=$(< "/results/relation-type.nt" wc - l)
+							lines=$(cat "/results/relation-type.nt" | wc -l)
 							echo "synthetic-relation-type,$config,n-m,$i,$j,$u,$z,$t,$lines,$dur">>/results/results-times-relation-type-detail.csv
-							total=$(($total + $dur))
-							if [ $j -ne 5 ]
-							then
+							total=$(echo "$total+$dur" | bc)
+							if [ $j -ne 5 ];then
 								rm /results/relation-type.nt
 							fi
 						fi
 					done
 					mv /results/relation-type.nt /results/synthetic-relation-type-$config-n-m-$i-$j-$u-$z.nt
-					if [ $total -ne 0 ]
-					then
-						total=$(($total / 5))
+					if (( $(echo "$total > 0" | bc -l) ));then
+						total=$(echo "$total/5" | bc -l)
 						echo "synthetic-relation-type,$config,n-m,$i,$j,$u,$z,$total">>/results/results-times-relation-type.csv
 					fi
 				done

@@ -28,6 +28,7 @@ do
 						cp /data/synthetic-data/relation-type/$type/${i}k_rows/table1_50_${u}_${j}_percent.csv /data/table1.csv
 						cp /data/synthetic-data/relation-type/$type/${i}k_rows/table2.csv /data/table2.csv
 					fi
+					total=0
 					for t in 1 2 3 4 5
 					do
 						start=$(date +%s.%N)
@@ -43,7 +44,7 @@ do
 							lines=$(cat "/results/relation-type.nt" | wc -l)
 							echo "synthetic-relation-type,$config,$type,$i,$j,$u,1,$t,$lines,$dur">>/results/results-times-relation-type-detail.csv
 							total=$(echo "$total+$dur" | bc)
-							if [ $j -ne 5 ];then
+							if [ $t -ne 5 ];then
 								rm /results/relation-type.nt
 							fi
 						fi
@@ -61,6 +62,7 @@ do
 done
 
 #n-m
+total=0
 sed -i 's/enrichment: no/enrichment: yes/g' /sdmrdfizer/configs/relation-type-config.ini
 sed -i 's/standard.rml.ttl/n_m.rml.ttl/g' /sdmrdfizer/configs/relation-type-config.ini
 
@@ -76,6 +78,7 @@ do
 				do
 					cp /data/synthetic-data/relation-type/n-m/${i}k_rows/table1_50_${u}_${z}_${j}_percent.csv /data/table1.csv
 					cp /data/synthetic-data/relation-type/n-m/${i}k_rows/table2_50_${u}_${z}_${j}_percent.csv /data/table2.csv
+					total=0
 					for t in 1 2 3 4 5
 					do
 						start=$(date +%s.%N)
@@ -91,7 +94,7 @@ do
 							lines=$(cat "/results/relation-type.nt" | wc -l)
 							echo "synthetic-relation-type,$config,n-m,$i,$j,$u,$z,$t,$lines,$dur">>/results/results-times-relation-type-detail.csv
 							total=$(echo "$total+$dur" | bc)
-							if [ $j -ne 5 ];then
+							if [ $t -ne 5 ];then
 								rm /results/relation-type.nt
 							fi
 						fi

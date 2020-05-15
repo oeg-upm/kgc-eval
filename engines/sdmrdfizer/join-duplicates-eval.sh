@@ -19,7 +19,7 @@ do
 				for t in 1 2 3 4 5
 				do
 					start=$(date +%s.%N)
-					timeout 10h python3 /sdmrdfizer/rdfizer/run_rdfizer.py /sdmrdfizer/configs/join-duplicates.ini
+					timeout 10h python3 /sdmrdfizer/rdfizer/run_rdfizer.py /sdmrdfizer/configs/join-duplicates-config.ini
 					exit_status=$?
 					finish=$(date +%s.%N)
 					dur=$(echo "$finish - $start" | bc)
@@ -45,7 +45,7 @@ do
 			done
 		done
 	done
-	sed -i 's/enrichment: yes/enrichment: no/g' /sdmrdfizer/configs/join-duplicates.ini
+	sed -i 's/enrichment: yes/enrichment: no/g' /sdmrdfizer/configs/join-duplicates-config.ini
 done
 rm /data/*.csv
 mkdir -p /results/join-duplicates

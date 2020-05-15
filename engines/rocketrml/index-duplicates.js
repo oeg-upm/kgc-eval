@@ -5,7 +5,7 @@ const doMapping = async () => {
   try{
     table1 = fs.readFileSync('/data/table1.csv', 'utf8')
     table2 = fs.readFileSync('/data/table2.csv', 'utf8')
-    mapping = fs.readFileSync('/mappings/synthetic/standard.rml.ttl', 'utf8')
+    mapping = fs.readFileSync('/mappings/synthetic/join-selectivity.rml.ttl', 'utf8')
   }catch(e){
     console.log('Error:', e.stack);
   }
@@ -19,7 +19,7 @@ const doMapping = async () => {
     xmlPerformanceMode: false
   };
   const result = await parser.parseFileLive(mapping, inputFiles, options).catch((err) => { console.log(err); });
-  fs.appendFile('/results/join-selectivity.nt', result, function (err) {
+  fs.appendFile('/results/join-duplicates.nt', result, function (err) {
     if (err) throw err;
     console.log('Saved!');
   });

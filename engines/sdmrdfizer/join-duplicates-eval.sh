@@ -37,6 +37,7 @@ do
 					fi
 				done
 				mv /results/join-duplicates.nt /results/synthetic-join-duplicates-$type-$i-$j.nt
+				mv /results/join-duplicates_datasets_stats.csv /results/stats_join-duplicates-$type-$i-$j.csv		
 				if (( $(echo "$total > 0" | bc -l) ));then
 					total=$(echo "$total/5" | bc -l)
 					echo "synthetic-join-duplicates,$type,$i,$j,$u,$total">>/results/results-times-join-duplicates.csv

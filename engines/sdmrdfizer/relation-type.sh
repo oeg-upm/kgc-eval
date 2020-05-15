@@ -50,6 +50,7 @@ do
 						fi
 					done
 					mv /results/relation-type.nt /results/synthetic-relation-type-$config-$type-$i-$j-$u.nt
+					mv /results/relation-type_datasets_stats.csv /results/stats_relation-type-$config-$type-$i-$j-$u.csv
 					if (( $(echo "$total > 0" | bc -l) ));then	
 						total=$(echo "$total/5" | bc -l)
 						echo "synthetic-relation-type,$config,$type,$i,$j,$u,1,$lines,$total">>/results/results-times-relation-type.csv
@@ -99,7 +100,8 @@ do
 							fi
 						fi
 					done
-					mv /results/relation-type.nt /results/synthetic-relation-type-$config-n-m-$i-$j-$u-$z.nt
+					mv /results/relation-type.nt /results/synthetic-relation-type-$config-n-m-$i-$j-$u-$z.
+					mv /results/relation-type_datasets_stats.csv /results/stats_relation-type-$config-$type-$i-$j-$u.csv
 					if (( $(echo "$total > 0" | bc -l) ));then
 						total=$(echo "$total/5" | bc -l)
 						echo "synthetic-relation-type,$config,n-m,$i,$j,$u,$z,$lines,$total">>/results/results-times-relation-type.csv

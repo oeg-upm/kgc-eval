@@ -35,6 +35,7 @@ do
 				fi
 			done
 			mv /results/join-selectivity.nt /results/synthetic-join-selectivity-$type-$i-$j.nt
+			mv /results/join-selectivity_datasets_stats.csv /results/stats_join-selectivity-$type-$i-$j.csv
 			if (( $(echo "$total > 0" | bc -l) ));then	
 				total=$(echo "$total/5" | bc -l)
 				echo "synthetic-join-selectivity,$type,$i,$j,$lines,$total">>/results/results-times-join-selectivity.csv

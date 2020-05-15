@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm /results/synthetic-relation-type/*
+rm /results/relation-type/*
 echo "dataset,config,type,size,percent,N,M,results,time">>/results/results-times-relation-type.csv
 echo "dataset,config,type,size,percent,N,M,run,results,time">>/results/results-times-relation-type-detail.csv
 declare -a configs=("enrich" "noenrich")
@@ -112,9 +112,9 @@ do
 done
 
 rm /data/*.csv
-mkidr /results/synthetic-relation-type
-cp /results/*.csv /results/synthetic-relation-type/
-cp /results/*.nt /results/synthetic-relation-type/
+mkidr -p /results/relation-type
+cp /results/*.csv /results/relation-type/
+cp /results/*.nt /results/relation-type/
 
 
 

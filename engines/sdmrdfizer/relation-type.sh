@@ -3,6 +3,8 @@
 rm /results/relation-type/*
 echo "dataset,config,type,size,percent,N,M,results,time">>/results/results-times-relation-type.csv
 echo "dataset,config,type,size,percent,N,M,run,results,time">>/results/results-times-relation-type-detail.csv
+sed -i 's/enrichment: no/enrichment: yes/g' /sdmrdfizer/configs/relation-type-config.ini
+sed -i 's/n_m.rml.ttl/standard.rml.ttl/g' /sdmrdfizer/configs/relation-type-config.ini
 declare -a configs=("enrich" "noenrich")
 
 #one-n and n-one

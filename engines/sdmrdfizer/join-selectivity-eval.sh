@@ -3,6 +3,7 @@
 rm /results/join-selectivity/*
 echo "dataset,config,size,percent,results,time">>/results/results-times-join-selectivity.csv
 echo "dataset,config,size,percent,run,results,time">>/results/results-times-join-selectivity-detail.csv
+sed -i 's/enrichment: no/enrichment: yes/g' /sdmrdfizer/configs/join-selectivity-config.ini
 declare -a configs=("enrich" "noenrich")
 
 for type in "${configs[@]}"

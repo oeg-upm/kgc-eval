@@ -2,7 +2,7 @@
 rm /results/partitioning/*
 echo "dataset,config,type,size,dup,case,results,time">>/results/results-times-partitioning.csv
 echo "dataset,config,type,size,dup,case,run,results,time">>/results/results-times-partitioning-detail.csv
-
+sed -i 's/enrichment: no/enrichment: yes/g' /sdmrdfizer/configs/partitioning-config.ini
 declare -a types=("horizontal" "vertical")
 declare -a duplicates=("with_dup" "without_dup")
 declare -a cases=("worst_case" "best_case")

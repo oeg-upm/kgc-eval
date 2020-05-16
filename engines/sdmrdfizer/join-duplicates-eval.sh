@@ -1,8 +1,9 @@
 #!/bin/bash
 
 rm /results/join-duplicates/*
-echo "dataset,config,size,duplicates,percent,time">>/results/results-times-join-duplicates.csv
+echo "dataset,config,size,duplicates,percent,results,time">>/results/results-times-join-duplicates.csv
 echo "dataset,config,size,duplicates,percent,run,results,time">>/results/results-times-join-duplicates-detail.csv
+sed -i 's/enrichment: no/enrichment: yes/g' /sdmrdfizer/configs/join-duplicates-config.ini
 declare -a configs=("enrich" "noenrich")
 
 for type in "${configs[@]}"
@@ -40,7 +41,7 @@ do
 				mv /results/join-duplicates_datasets_stats.csv /results/stats_join-duplicates-$type-$i-$j.csv		
 				if (( $(echo "$total > 0" | bc -l) ));then
 					total=$(echo "$total/5" | bc -l)
-					echo "synthetic-join-duplicates,$type,$i,$j,$u,$total">>/results/results-times-join-duplicates.csv
+					echo "synthetic-join-duplicates,$type,$i,$j,$u,$lines,$total">>/results/results-times-join-duplicates.csv
 				fi
 			done
 		done

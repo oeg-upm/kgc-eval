@@ -115,8 +115,8 @@ done
 
 rm /data/*.csv
 mkidr -p /results/relation-type
-cp /results/*.csv /results/relation-type/
-cp /results/*.nt /results/relation-type/
+mv /results/*.csv /results/relation-type/
+mv /results/*.nt /results/relation-type/
 
 
 

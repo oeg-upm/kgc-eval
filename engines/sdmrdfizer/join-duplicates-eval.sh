@@ -49,5 +49,5 @@ do
 done
 rm /data/*.csv
 mkdir -p /results/join-duplicates
-cp /results/*.csv /results/join-duplicates/
-cp /results/*.nt /results/join-duplicates/
+mv /results/*.csv /results/join-duplicates/
+mv /results/*.nt /results/join-duplicates/

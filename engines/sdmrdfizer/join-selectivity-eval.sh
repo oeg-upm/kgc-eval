@@ -46,5 +46,5 @@ do
 done
 rm /data/*.csv
 mkdir -p /results/join-selectivity
-cp /results/*.csv /results/join-selectivity/
-cp /results/*.nt /results/join-selectivity/
+mv /results/*.csv /results/join-selectivity/
+mv /results/*.nt /results/join-selectivity/

@@ -54,5 +54,5 @@ do
 done
 rm /data/*.csv
 mkidr -p /results/partitioning
-cp /results/*.csv /results/partitioning/
-cp /results/*.nt /results/partitioning/
+mv /results/*.csv /results/partitioning/
+mv /results/*.nt /results/partitioning/

@@ -21,7 +21,7 @@ do
 					sed -i "s/synthetic\/.*.rml.ttl/synthetic\/${type}_${dup}_${case}.rml.ttl/g" /sdmrdfizer/configs/partitioning-config.ini
 					cp /data/synthetic-data/partitioning/${type}_${dup}_${case}/${i}k_rows/*.csv /data/
 					total=0
-					for j in 1 2 3 4 5
+					for t in 1 2 3 4 5
 					do
 						start=$(date +%s.%N)
 						timeout 10h python3 /sdmrdfizer/rdfizer/run_rdfizer.py /sdmrdfizer/configs/partitioning-config.ini
@@ -36,7 +36,7 @@ do
 							lines=$(cat "/results/partitioning.nt" | wc -l)
 							echo "synthetic-partitioning,$config,$type,$i,$dup,$case,$t,$lines,$dur">>/results/results-times-partitioning-detail.csv
 							total=$(echo "$total+$dur" | bc)
-							if [ $j -ne 5 ];then
+							if [ $t -ne 5 ];then
 								rm /results/partitioning.nt
 							fi
 						fi
@@ -45,7 +45,7 @@ do
 					mv /results/partitioning_datasets_stats.csv /results/stats_partitioning-$config-$i-$type-$dup-$case.csv		
 					if (( $(echo "$total > 0" | bc -l) ));then
 						total=$(echo "$total/5" | bc -l)
-						echo "synthetic-partitioning,$config,$type,$i,$dup,$case,$lines,$total">>/results/results-times-relation-type.csv
+						echo "synthetic-partitioning,$config,$type,$i,$dup,$case,$lines,$total">>/results/results-times-partitioning.csv
 					fi
 				done
 			done

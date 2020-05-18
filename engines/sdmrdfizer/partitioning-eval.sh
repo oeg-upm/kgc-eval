@@ -42,6 +42,7 @@ do
 						fi
 					done
 					mv /results/partitioning.nt /results/synthetic-partitioning-$config-$i-$type-$dup-$case.nt
+					mv /results/partitioning_datasets_stats.csv /results/stats_partitioning-$config-$i-$type-$dup-$case.csv		
 					if (( $(echo "$total > 0" | bc -l) ));then
 						total=$(echo "$total/5" | bc -l)
 						echo "synthetic-partitioning,$config,$type,$i,$dup,$case,$lines,$total">>/results/results-times-relation-type.csv

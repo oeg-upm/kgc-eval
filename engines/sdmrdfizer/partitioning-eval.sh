@@ -18,7 +18,7 @@ do
 			do
 				for case in "${cases[@]}"
 				do
-					sed -i "s/.*.rml.ttl/${type}_${dup}_${case}.rml.ttl/g" /sdmrdfizer/configs/partitioning-config.ini
+					sed -i "s/synthetic\/.*.rml.ttl/synthetic\/${type}_${dup}_${case}.rml.ttl/g" /sdmrdfizer/configs/partitioning-config.ini
 					cp /data/synthetic-data/partitioning/${type}_${dup}_${case}/${i}k_rows/*.csv /data/
 					total=0
 					for j in 1 2 3 4 5

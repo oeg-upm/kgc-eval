@@ -14,13 +14,13 @@ do
 		do
 			for case in "${cases[@]}"
 			do
-				sed -i "s/synthetic\/.*.rml.ttl/synthetic\/${type}_${dup}_${case}.rml.ttl/g" /rocketrml/index-partitioning-${case}.js
+				sed -i "s/synthetic\/.*.rml.ttl/synthetic\/${type}_${dup}_${case}.rml.ttl/g" /rocketrml/index-partitioning-${case}-${types}.js
 				cp /data/synthetic-data/partitioning/${type}_${dup}_${case}/${i}k_rows/*.csv /data/
 				total=0
 				for t in 1 2 3 4 5
 				do
 					start=$(date +%s.%N)
-					timeout 10h node index-partitioning-${case}.js
+					timeout 10h node index-partitioning-${case}-${types}.js
 					exit_status=$?
 					finish=$(date +%s.%N)
 					dur=$(echo "$finish - $start" | bc)

@@ -27,7 +27,7 @@ const doMapping = async () => {
     "/data/table6.csv": table6,
     "/data/table7.csv": table7,
     "/data/table8.csv": table8,
-    "/data/table9.csv": table9, 
+    "/data/table9.csv": table9 
   };
   const options = {
     toRDF: true,

@@ -24,5 +24,5 @@ We test the performance and correctness of the RML compliant engines deatiled in
 - Julián Arenas-Guerrero
 - David Chaves-Fraga (Ontology Engineering Group - UPM) 
 - Jhon Toledo
-- Mario Sccroca
+- Mario Scrocca
 - Daniel Doña

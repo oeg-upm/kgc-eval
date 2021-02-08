@@ -1,4 +1,4 @@
-# Evaluation of Knowledge Graph Creation Engines with GTFS-Madrid-Bench
+# Evaluation of Knowledge Graph Construction Engines with GTFS-Madrid-Bench
 
 
 ## GTFS-Madrid-Bench
@@ -21,8 +21,8 @@ We test the performance and correctness of the RML compliant engines deatiled in
 - RMLStreamer v1.1.0
 
 ## Authors
-- Julián Arenas-Guerrero
-- David Chaves-Fraga (Ontology Engineering Group - UPM) 
-- Jhon Toledo
-- Mario Scrocca
-- Daniel Doña
+- Julián Arenas-Guerrero (Ontology Engineering Group - UPM) 
+- David Chaves-Fraga (Ontology Engineering Group - UPM)
+- Jhon Toledo (Ontology Engineering Group - UPM) 
+- Mario Scrocca (Cefriel - Politecnico di Milano)
+- Daniel Doña (Ontology Engineering Group - UPM) 

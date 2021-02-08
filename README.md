@@ -24,5 +24,5 @@ We test the performance and correctness of the RML compliant engines deatiled in
 - Julián Arenas-Guerrero - julian.arenas.guerrero@upm.es (Ontology Engineering Group - UPM)
 - David Chaves-Fraga (Ontology Engineering Group - UPM)
 - Jhon Toledo (Ontology Engineering Group - UPM) 
-- Mario Scrocca (Cefriel - Politecnico di Milano)
+- Mario Scrocca (Cefriel)
 - Daniel Doña (Ontology Engineering Group - UPM) 

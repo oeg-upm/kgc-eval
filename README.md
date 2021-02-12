@@ -10,13 +10,14 @@ Using the [GTFS-Madrid-Bench](https://github.com/oeg-upm/gtfs-bench) and based o
 ## R2RML and RML test-cases
 We use the resources provided by the W3C community on KG-Construction (https://www.w3.org/community/kg-construct/) to run the R2RML and RML test-cases over the selected engines.
 
-
 ## Engines
 We test the performance and scalability of a set of KG construction engines:
 
 R2RML-based:
 - Ontop v4.0.3
 - Morph-RDB v3.12.5
+- R2RML-F v1.2.3
+- db2triples v2.2
 
 RML-based:
 - RMLMapper v4.9.1

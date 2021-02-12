@@ -28,8 +28,8 @@ RML-based:
 
 ## Authors
 - Julián Arenas-Guerrero - julian.arenas.guerrero@upm.es (Ontology Engineering Group - UPM)
+- Mario Scrocca (Cefriel - Politecnico di Milano)
 - David Chaves-Fraga (Ontology Engineering Group - UPM)
 - Jhon Toledo (Ontology Engineering Group - UPM) 
-- Mario Scrocca (Cefriel)
 - Daniel Doña (Ontology Engineering Group - UPM)
 - Luis Pozo-Gilo (Ontology Engineering Group - UPM)

@@ -2,23 +2,29 @@
 
 
 ## GTFS-Madrid-Bench
+Using the [GTFS-Madrid-Bench](https://github.com/oeg-upm/gtfs-bench) and based on the input dataset we create the following distributions to test the engines:
 
+- Formats: CSV, XML, JSON, RDB and Random-Custom (sources in different formats)
+- Scale-Sizes: 1, 10, 100 and 1000
 
-
-
-## Mappings
-We create a set of mappings for each use case using RML specification. It can be found in the mappings folder
+## R2RML and RML test-cases
+We use the resources provided by the W3C community on KG-Construction (https://www.w3.org/community/kg-construct/) to run the R2RML and RML test-cases over the selected engines.
 
 
 ## Engines
-We test the performance and correctness of the RML compliant engines deatiled in the [RML-Implementation-report](http://rml.io/implementation-report/):
+We test the performance and scalability of a set of KG construction engines:
 
-(TO UPDATE)
-- RMLMapper v4.5.1
-- CARML v0.2.3
-- RocketRML v.1.0.6
-- SDM-RDFizer v3.2
-- RMLStreamer v1.1.0
+R2RML-based:
+- Ontop v4.0.3
+- Morph-RDB v3.12.5
+
+RML-based:
+- RMLMapper v4.9.1
+- CARML v0.3.1
+- RocketRML v1.8.2
+- SDM-RDFizer v3.4
+- RMLStreamer v2.0
+- Chimera v2.0
 
 ## Authors
 - Julián Arenas-Guerrero - julian.arenas.guerrero@upm.es (Ontology Engineering Group - UPM)

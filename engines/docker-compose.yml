@@ -40,5 +40,20 @@ services:
       - ../results/morphrdb:/results
       - ../mappings:/mappings
       - ../configs/morphrdb:/configs
- 
+  rmlstreamer:
+    container_name: rmlstreamer
+    image: oegdataintegration/rmlstreamer:2.0
+    volumes:
+      - ../data:/data
+      - ../results/rmlstreamer:/results
+      - ../mappings:/mappings
+      - ../configs/rmlstreamer:/configs
+  db2triples:
+    container_name: db2triples
+    image: oegdataintegration/db2triples:2.3
+    volumes:
+      - ../data:/data
+      - ../results/db2triples:/results
+      - ../mappings:/mappings
+      - ../configs/db2triples:/configs
  

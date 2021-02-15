@@ -1,5 +1,5 @@
 {
-    "rounds":3,
-    "cmd":"python3 -m rdfizer -c ./engines/rdfizer/configfile.ini",
-    "output_path":"./"
+    "rounds":1,
+    "cmd":"python3 -m rdfizer -c ./tmp/config.ini",
+    "output_path":"./tmp/graph/gtfs.nt"
 }

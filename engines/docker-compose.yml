@@ -8,7 +8,6 @@ services:
       - ../results/ontop:/results
       - ../mappings:/mappings
       - ../configs/ontop:/configs
-
   rmlmapper:
     container_name: rmlmapper
     image: oegdataintegration/rmlmapper:4.9.1
@@ -17,5 +16,13 @@ services:
       - ../results/rmlmapper:/results
       - ../mappings:/mappings
       - ../configs/rmlmapper:/configs
+  rocketrml:
+    container_name: rocketrml
+    image: oegdataintegration/rocketrml:1.8.2
+    volumes:
+      - ../data:/data
+      - ../results/rocketrml:/results
+      - ../mappings:/mappings
+      - ../configs/rocketrml:/configs
  
  

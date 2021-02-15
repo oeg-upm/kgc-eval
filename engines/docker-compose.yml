@@ -1,0 +1,21 @@
+version: "2.3"
+services:
+  ontop:
+    container_name: ontop
+    image: oegdataintegration/ontop:4.0.3
+    volumes:
+      - ../data:/data
+      - ../results/ontop:/results
+      - ../mappings:/mappings
+      - ../configs/ontop:/configs
+
+  rmlmapper:
+    container_name: rmlmapper
+    image: oegdataintegration/rmlmapper:4.9.1
+    volumes:
+      - ../data:/data
+      - ../results/rmlmapper:/results
+      - ../mappings:/mappings
+      - ../configs/rmlmapper:/configs
+ 
+ 

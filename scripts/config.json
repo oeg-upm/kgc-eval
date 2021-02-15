@@ -1,0 +1,5 @@
+{
+    "rounds":3,
+    "cmd":"python3 -m rdfizer -c ./engines/rdfizer/configfile.ini",
+    "output_path":"./"
+}

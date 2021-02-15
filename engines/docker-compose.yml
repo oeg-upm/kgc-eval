@@ -32,5 +32,13 @@ services:
       - ../results/sdmrdfizer:/results
       - ../mappings:/mappings
       - ../configs/sdmrdfizer:/configs
+  morphrdb:
+    container_name: morphrdb
+    image: oegdataintegration/morph-rdb:3.12.6
+    volumes:
+      - ../data:/data
+      - ../results/morphrdb:/results
+      - ../mappings:/mappings
+      - ../configs/morphrdb:/configs
  
  

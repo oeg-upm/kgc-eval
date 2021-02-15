@@ -24,5 +24,13 @@ services:
       - ../results/rocketrml:/results
       - ../mappings:/mappings
       - ../configs/rocketrml:/configs
+  sdmrdfizer:
+    container_name: sdmrdfizer
+    image: oegdataintegration/sdm-rdfizer:3.4
+    volumes:
+      - ../data:/data
+      - ../results/sdmrdfizer:/results
+      - ../mappings:/mappings
+      - ../configs/sdmrdfizer:/configs
  
  

@@ -18,6 +18,8 @@ services:
       - ../results/rmlmapper:/results
       - ../mappings:/mappings
       - ../configs/rmlmapper:/configs
+    depends_on:
+      - mysql
   rocketrml:
     container_name: rocketrml
     image: oegdataintegration/rocketrml:1.8.2
@@ -34,6 +36,8 @@ services:
       - ../results/sdmrdfizer:/results
       - ../mappings:/mappings
       - ../configs/sdmrdfizer:/configs
+    depends_on:
+      - mysql
   morphrdb:
     container_name: morphrdb
     image: oegdataintegration/morph-rdb:3.12.6
@@ -62,6 +66,14 @@ services:
       - ../configs/db2triples:/configs
     depends_on:
       - mysql
+  carml:
+    container_name: carml
+    image: oegdataintegration/carml:0.3.1
+    volumes:
+      - ../data:/data
+      - ../results/carml:/results
+      - ../mappings:/mappings
+      - ../configs/carml:/configs
 
   # MYSQL
   mysql:

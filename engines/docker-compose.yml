@@ -54,7 +54,7 @@ services:
       - ../configs/rmlstreamer:/configs
   db2triples:
     container_name: db2triples
-    image: oegdataintegration/db2triples:2.3
+    image: oegdataintegration/dbtriples:2.3
     volumes:
       - ../data:/data
       - ../results/db2triples:/results

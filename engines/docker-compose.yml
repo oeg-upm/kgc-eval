@@ -81,7 +81,8 @@ services:
     image: mysql:8.0
     restart: always
     volumes:
-     - /data/volumes:/var/lib/mysql    
+     - /data/volumes:/var/lib/mysql
+     - /data:/data    
     environment:
       MYSQL_ROOT_PASSWORD: r2rml
       MYSQL_USER: r2rml

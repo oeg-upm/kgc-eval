@@ -90,7 +90,8 @@ services:
     ports:
       - "3306:3306"
     command: --sql_mode="ANSI_QUOTES,ALLOW_INVALID_DATES" 
-
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
 
 networks:
   kgc_eval:

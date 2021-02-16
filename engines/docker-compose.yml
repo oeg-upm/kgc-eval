@@ -60,6 +60,9 @@ services:
       - ../results/db2triples:/results
       - ../mappings:/mappings
       - ../configs/db2triples:/configs
+    depends_on:
+      - mysql
+      
   # MYSQL
   mysql:
     container_name: kgc-mysql

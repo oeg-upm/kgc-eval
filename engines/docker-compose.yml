@@ -77,3 +77,8 @@ services:
     ports:
       - "3306:3306"
     command: --sql_mode="ANSI_QUOTES" 
+
+
+networks:
+  kgc_eval:
+    driver: bridge    

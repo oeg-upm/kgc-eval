@@ -8,6 +8,8 @@ services:
       - ../results/ontop:/results
       - ../mappings:/mappings
       - ../configs/ontop:/configs
+    depends_on:
+      - mysql
   rmlmapper:
     container_name: rmlmapper
     image: oegdataintegration/rmlmapper:4.9.1
@@ -40,6 +42,8 @@ services:
       - ../results/morphrdb:/results
       - ../mappings:/mappings
       - ../configs/morphrdb:/configs
+    depends_on:
+      - mysql
   rmlstreamer:
     container_name: rmlstreamer
     image: oegdataintegration/rmlstreamer:2.0

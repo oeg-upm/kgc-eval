@@ -56,4 +56,16 @@ services:
       - ../results/db2triples:/results
       - ../mappings:/mappings
       - ../configs/db2triples:/configs
- 
+  # MYSQL
+  mysql:
+    container_name: kgc-mysql
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: r2rml
+      MYSQL_USER: r2rml
+      MYSQL_PASSWORD: r2rml
+      MYSQL_DATABASE: r2rml
+    ports:
+      - "3306:3306"
+    command: --sql_mode="ANSI_QUOTES" 

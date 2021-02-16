@@ -69,7 +69,7 @@ services:
     image: mysql:8.0
     restart: always
     volumes:
-     - /kgc_mysql_volumes:/var/lib/mysql    
+     - /data/volumes:/var/lib/mysql    
     environment:
       MYSQL_ROOT_PASSWORD: r2rml
       MYSQL_USER: r2rml

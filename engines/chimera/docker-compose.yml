@@ -1,0 +1,15 @@
+version: '2.2'
+
+services:
+  chimera:
+    container_name: chimera
+    image: oegdataintegration/chimera:2.1
+    volumes:
+      - ./data:/data
+      - ./results/chimera:/out
+      - ./mappings/${MAPPINGS:-mapping}.rml.ttl:/lifting/mapping.rml.ttl
+      - ./configs/chimera:/routes
+
+networks:
+  kgc_eval:
+    driver: bridge

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+  <bean class="com.cefriel.chimera.processor.rml.RMLProcessor" id="rml_lifter"/>
+  <bean class="com.cefriel.chimera.processor.AttachGraph" id="attach_graph">
+    <property name="context" value="false"/>
+  </bean> 
+  <bean class="com.cefriel.chimera.processor.DumpGraph" id="graph_dumper">
+    <property name="destinationPath" value="./out/"/>
+  </bean>
+  <bean class="com.cefriel.chimera.processor.rml.StopRMLProcessor" id="quit"/>
+  <bean class="com.cefriel.chimera.processor.onexception.OnExceptionInspectProcessor" id="inspect_ex"/>
+  <!-- Configuration -->
+  <bean class="com.cefriel.chimera.processor.rml.RMLOptions" id="rml_config_gtfs_lifting">
+    <property name="mappings">
+      <util:list id="mappingsArray">
+        <value>./lifting/mapping.rml.ttl</value>
+      </util:list>
+    </property>
+    <property name="baseIRI">
+        <value>http://www.crtm.es/data/</value>
+    </property>
+    <property name="baseIRIPrefix" value="crtm"/>
+    <property name="ordered" value="true"/>
+    <property name="concurrentRecords" value="true"/>
+  </bean>
+  <!-- Camel routes -->
+  <camelContext id="chimera_gtfs_context" messageHistory="true" streamCache="true" trace="false" xmlns="http://camel.apache.org/schema/spring">
+    <jmxAgent disabled="true" id="agent"/>
+    <!-- Exceptions management -->
+    <onException>
+      <exception>java.lang.Exception</exception>
+      <redeliveryPolicy maximumRedeliveries="0"/>
+      <handled><constant>false</constant></handled>
+      <camel:process ref="inspect_ex"/>
+    </onException>
+    <camel:route id="conversion" autoStartup="true">
+      <camel:from id="input" uri="file://./inbox/?noop=true"/>
+      <camel:to uri="direct:conversion_processing?timeout=0"/>
+    </camel:route>
+    <!-- FRAGMENTS -->
+    <camel:route id="conversion_processing">
+      <camel:from uri="direct:conversion_processing"/>
+      <camel:choice>
+        <camel:when>
+          <camel:simple>${body} != null</camel:simple>
+          <camel:log loggingLevel="INFO" message="Converting GTFS to LinkedGTFS and back to GTFS"/>
+          <camel:process id="attachGraph_conversion" ref="attach_graph"/>
+          <camel:to uri="direct:lifting_component?timeout=0"/>
+          <camel:process ref="graph_dumper"/>
+          <camel:process ref="quit"/>
+        </camel:when>
+        <camel:otherwise>
+          <camel:log loggingLevel="INFO" message="Empty message"/>
+        </camel:otherwise>
+      </camel:choice>
+    </camel:route>
+    <!-- LIFTING RML -->
+    <camel:route id="lift_fragment">
+      <camel:from uri="direct:lifting_component"/>
+      <camel:log loggingLevel="INFO" message="Lifting GTFS to Linked GTFS"/>
+      <camel:setHeader name="rml_config">
+        <simple>${ref:rml_config_gtfs_lifting}</simple>
+      </camel:setHeader>
+      <camel:process id="execute_mappings" ref="rml_lifter"/>
+    </camel:route>
+  </camelContext>
+</beans>

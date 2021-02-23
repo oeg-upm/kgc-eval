@@ -169,7 +169,7 @@ mappings:
               function: equal
               parameters:
                 - [str1, $(service_id)]
-                - [str2, $(service_id)] 
+                - [str2, $(service_id)]
   calendar_date_rules:
     sources:
       - [/data/CALENDAR_DATES.xml~xpath, /Category/Record]
@@ -211,14 +211,6 @@ mappings:
     s: http://transport.linkeddata.es/madrid/metro/shape/$(shape_id)
     po:
       - [a, gtfs:Shape]
-      - p: gtfs:shapePoint
-        o:
-          - mapping: shapePoints
-            condition:
-              function: equal
-              parameters:
-                - [str1, $(shape_id)]
-                - [str2, $(shape_id)]
   shapePoints:
     sources:
       - [/data/SHAPES.xml~xpath, /Category/Record]
@@ -228,7 +220,8 @@ mappings:
       - [geo:lat,$(shape_pt_lat),xsd:double]
       - [geo:long,$(shape_pt_lon),xsd:double]
       - [gtfs:pointSequence,$(shape_pt_sequence)]
-      - [gtfs:distanceTraveled,$(shape_dist_traveled)] 
+      - [gtfs:distanceTraveled,$(shape_dist_traveled)]
+      - [gtfs:shapePoint, http://transport.linkeddata.es/madrid/metro/shape_point/$(shape_id)-$(shape_pt_sequence)]
   frequencies:
     sources:
       - [/data/FREQUENCIES.xml~xpath, /Category/Record]

@@ -787,12 +787,6 @@
 :om_073 a rr:ObjectMap;
     rr:constant "http://vocab.gtfs.org/terms#Shape";
     rr:termType rr:IRI.
-:pom_073 a rr:PredicateObjectMap.
-:map_shapes_000 rr:predicateObjectMap :pom_073.
-:pm_073 a rr:PredicateMap.
-:pom_073 rr:predicateMap :pm_073.
-:pm_073 rr:constant gtfs:shapePoint.
-:pom_073 rr:objectMap :om_074.
 :rules_000 void:exampleResource :map_shapePoints_000.
 :map_shapePoints_000 rml:logicalSource :source_011.
 :source_011 a rml:LogicalSource;
@@ -804,52 +798,61 @@
 :s_011 a rr:SubjectMap.
 :map_shapePoints_000 rr:subjectMap :s_011.
 :s_011 rr:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}".
+:pom_073 a rr:PredicateObjectMap.
+:map_shapePoints_000 rr:predicateObjectMap :pom_073.
+:pm_073 a rr:PredicateMap.
+:pom_073 rr:predicateMap :pm_073.
+:pm_073 rr:constant rdf:type.
+:pom_073 rr:objectMap :om_074.
+:om_074 a rr:ObjectMap;
+    rr:constant "http://vocab.gtfs.org/terms#ShapePoint";
+    rr:termType rr:IRI.
 :pom_074 a rr:PredicateObjectMap.
 :map_shapePoints_000 rr:predicateObjectMap :pom_074.
 :pm_074 a rr:PredicateMap.
 :pom_074 rr:predicateMap :pm_074.
-:pm_074 rr:constant rdf:type.
+:pm_074 rr:constant geo:lat.
 :pom_074 rr:objectMap :om_075.
 :om_075 a rr:ObjectMap;
-    rr:constant "http://vocab.gtfs.org/terms#ShapePoint";
-    rr:termType rr:IRI.
+    rml:reference "shape_pt_lat";
+    rr:termType rr:Literal;
+    rr:datatype xsd:double.
 :pom_075 a rr:PredicateObjectMap.
 :map_shapePoints_000 rr:predicateObjectMap :pom_075.
 :pm_075 a rr:PredicateMap.
 :pom_075 rr:predicateMap :pm_075.
-:pm_075 rr:constant geo:lat.
+:pm_075 rr:constant geo:long.
 :pom_075 rr:objectMap :om_076.
 :om_076 a rr:ObjectMap;
-    rml:reference "shape_pt_lat";
+    rml:reference "shape_pt_lon";
     rr:termType rr:Literal;
     rr:datatype xsd:double.
 :pom_076 a rr:PredicateObjectMap.
 :map_shapePoints_000 rr:predicateObjectMap :pom_076.
 :pm_076 a rr:PredicateMap.
 :pom_076 rr:predicateMap :pm_076.
-:pm_076 rr:constant geo:long.
+:pm_076 rr:constant gtfs:pointSequence.
 :pom_076 rr:objectMap :om_077.
 :om_077 a rr:ObjectMap;
-    rml:reference "shape_pt_lon";
-    rr:termType rr:Literal;
-    rr:datatype xsd:double.
+    rml:reference "shape_pt_sequence";
+    rr:termType rr:Literal.
 :pom_077 a rr:PredicateObjectMap.
 :map_shapePoints_000 rr:predicateObjectMap :pom_077.
 :pm_077 a rr:PredicateMap.
 :pom_077 rr:predicateMap :pm_077.
-:pm_077 rr:constant gtfs:pointSequence.
+:pm_077 rr:constant gtfs:distanceTraveled.
 :pom_077 rr:objectMap :om_078.
 :om_078 a rr:ObjectMap;
-    rml:reference "shape_pt_sequence";
+    rml:reference "shape_dist_traveled";
     rr:termType rr:Literal.
 :pom_078 a rr:PredicateObjectMap.
 :map_shapePoints_000 rr:predicateObjectMap :pom_078.
 :pm_078 a rr:PredicateMap.
 :pom_078 rr:predicateMap :pm_078.
-:pm_078 rr:constant gtfs:distanceTraveled.
+:pm_078 rr:constant gtfs:shapePoint.
 :pom_078 rr:objectMap :om_079.
 :om_079 a rr:ObjectMap;
-    rml:reference "shape_dist_traveled";
+    rr:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
     rr:termType rr:Literal.
 :rules_000 void:exampleResource :map_frequencies_000.
 :map_frequencies_000 rml:logicalSource :source_012.
@@ -965,13 +968,8 @@
     rr:joinCondition :jc_009.
 :jc_009 rr:child "service_id";
     rr:parent "service_id".
-:om_074 a rr:ObjectMap;
-    rr:parentTriplesMap :map_shapePoints_000;
-    rr:joinCondition :jc_010.
-:jc_010 rr:child "shape_id";
-    rr:parent "shape_id".
 :om_085 a rr:ObjectMap;
     rr:parentTriplesMap :map_trips_000;
-    rr:joinCondition :jc_011.
-:jc_011 rr:child "trip_id";
+    rr:joinCondition :jc_010.
+:jc_010 rr:child "trip_id";
     rr:parent "trip_id".

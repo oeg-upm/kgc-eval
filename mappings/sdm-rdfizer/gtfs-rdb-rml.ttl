@@ -848,9 +848,6 @@
 :pom_073 rr:predicateMap :pm_073.
 :pm_073 rr:constant gtfs:shapePoint.
 :pom_073 rr:objectMap :om_074.
-:om_074 a rr:ObjectMap;
-    rr:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
-    rr:termType rr:Literal.
 :rules_000 void:exampleResource :map_shapePoints_000.
 :map_shapePoints_000 rml:logicalSource :source_011.
 :source_011 a rml:LogicalSource;
@@ -1033,8 +1030,13 @@
     rr:joinCondition :jc_009.
 :jc_009 rr:child "service_id";
     rr:parent "service_id".
+:om_074 a rr:ObjectMap;
+    rr:parentTriplesMap :map_shapePoints_000;
+    rr:joinCondition :jc_010.
+:jc_010 rr:child "shape_id";
+    rr:parent "shape_id".
 :om_085 a rr:ObjectMap;
     rr:parentTriplesMap :map_trips_000;
-    rr:joinCondition :jc_010.
-:jc_010 rr:child "trip_id";
+    rr:joinCondition :jc_011.
+:jc_011 rr:child "trip_id";
     rr:parent "trip_id".

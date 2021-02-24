@@ -21,7 +21,7 @@
     void:exampleResource :map_stoptimes_000.
 :map_stoptimes_000 rml:logicalSource :source_000.
 :source_000 a rml:LogicalSource;
-    rml:source "STOP_TIMES";
+    rml:source :database_000;
     rml:query "SELECT * FROM STOP_TIMES".
 :database_000 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -124,7 +124,7 @@
 :rules_000 void:exampleResource :map_trips_000.
 :map_trips_000 rml:logicalSource :source_001.
 :source_001 a rml:LogicalSource;
-    rml:source "TRIPS";
+    rml:source :database_001;
     rml:query "SELECT * FROM TRIPS".
 :database_001 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -212,7 +212,7 @@
 :rules_000 void:exampleResource :map_routes_000.
 :map_routes_000 rml:logicalSource :source_002.
 :source_002 a rml:LogicalSource;
-    rml:source "ROUTES";
+    rml:source :database_002;
     rml:query "SELECT * FROM ROUTES".
 :database_002 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -306,7 +306,7 @@
 :rules_000 void:exampleResource :map_agency_000.
 :map_agency_000 rml:logicalSource :source_003.
 :source_003 a rml:LogicalSource;
-    rml:source "AGENCY";
+    rml:source :database_003;
     rml:query "SELECT * FROM AGENCY".
 :database_003 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -385,7 +385,7 @@
 :rules_000 void:exampleResource :map_stops_000.
 :map_stops_000 rml:logicalSource :source_004.
 :source_004 a rml:LogicalSource;
-    rml:source "STOPS";
+    rml:source :database_004;
     rml:query "SELECT * FROM STOPS".
 :database_004 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -517,7 +517,7 @@
 :rules_000 void:exampleResource :map_services1_000.
 :map_services1_000 rml:logicalSource :source_005.
 :source_005 a rml:LogicalSource;
-    rml:source "CALENDAR";
+    rml:source :database_005;
     rml:query "SELECT * FROM CALENDAR".
 :database_005 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -548,7 +548,7 @@
 :rules_000 void:exampleResource :map_services2_000.
 :map_services2_000 rml:logicalSource :source_006.
 :source_006 a rml:LogicalSource;
-    rml:source "CALENDAR_DATES";
+    rml:source :database_006;
     rml:query "SELECT * FROM CALENDAR_DATES".
 :database_006 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -579,7 +579,7 @@
 :rules_000 void:exampleResource :map_calendar_date_rules_000.
 :map_calendar_date_rules_000 rml:logicalSource :source_007.
 :source_007 a rml:LogicalSource;
-    rml:source "CALENDAR_DATES";
+    rml:source :database_007;
     rml:query "SELECT * FROM CALENDAR_DATES".
 :database_007 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -624,7 +624,7 @@
 :rules_000 void:exampleResource :map_calendar_rules_000.
 :map_calendar_rules_000 rml:logicalSource :source_008.
 :source_008 a rml:LogicalSource;
-    rml:source "CALENDAR";
+    rml:source :database_008;
     rml:query "SELECT * FROM CALENDAR".
 :database_008 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -739,7 +739,7 @@
 :rules_000 void:exampleResource :map_feed_000.
 :map_feed_000 rml:logicalSource :source_009.
 :source_009 a rml:LogicalSource;
-    rml:source "FEED_INFO";
+    rml:source :database_009;
     rml:query "SELECT * FROM FEED_INFO".
 :database_009 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -820,7 +820,7 @@
 :rules_000 void:exampleResource :map_shapes_000.
 :map_shapes_000 rml:logicalSource :source_010.
 :source_010 a rml:LogicalSource;
-    rml:source "SHAPES";
+    rml:source :database_010;
     rml:query "SELECT * FROM SHAPES".
 :database_010 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -848,13 +848,10 @@
 :pom_073 rr:predicateMap :pm_073.
 :pm_073 rr:constant gtfs:shapePoint.
 :pom_073 rr:objectMap :om_074.
-:om_074 a rr:ObjectMap;
-    rr:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
-    rr:termType rr:Literal.
 :rules_000 void:exampleResource :map_shapePoints_000.
 :map_shapePoints_000 rml:logicalSource :source_011.
 :source_011 a rml:LogicalSource;
-    rml:source "SHAPES";
+    rml:source :database_011;
     rml:query "SELECT * FROM SHAPES".
 :database_011 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -917,7 +914,7 @@
 :rules_000 void:exampleResource :map_frequencies_000.
 :map_frequencies_000 rml:logicalSource :source_012.
 :source_012 a rml:LogicalSource;
-    rml:source "FREQUENCIES";
+    rml:source :database_012;
     rml:query "SELECT * FROM FREQUENCIES".
 :database_012 a d2rq:Database;
     d2rq:jdbcDSN "jdbc:mysql://localhost:3306/gtfs";
@@ -1033,8 +1030,13 @@
     rr:joinCondition :jc_009.
 :jc_009 rr:child "service_id";
     rr:parent "service_id".
+:om_074 a rr:ObjectMap;
+    rr:parentTriplesMap :map_shapePoints_000;
+    rr:joinCondition :jc_010.
+:jc_010 rr:child "shape_id";
+    rr:parent "shape_id".
 :om_085 a rr:ObjectMap;
     rr:parentTriplesMap :map_trips_000;
-    rr:joinCondition :jc_010.
-:jc_010 rr:child "trip_id";
+    rr:joinCondition :jc_011.
+:jc_011 rr:child "trip_id";
     rr:parent "trip_id".

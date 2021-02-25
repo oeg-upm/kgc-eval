@@ -75,6 +75,15 @@ services:
       - ../mappings:/mappings
       - ../configs/carml:/configs
 
+  r2rmlf:
+    container_name: r2rmlf
+    image: oegdataintegration/r2rml-f:1.2.3
+    volumes:
+      - ../data:/data
+      - ../results/r2rmlf:/results
+      - ../mappings:/mappings
+      - ../configs/r2rmlf:/configs
+
   # MYSQL
   mysql:
     container_name: kgc-mysql

@@ -83,7 +83,8 @@ services:
       - ../results/r2rmlf:/results
       - ../mappings:/mappings
       - ../configs/r2rmlf:/configs
-
+    depends_on:
+      - mysql
   # MYSQL
   mysql:
     container_name: kgc-mysql

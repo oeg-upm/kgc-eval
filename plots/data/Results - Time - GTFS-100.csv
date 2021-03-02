@@ -50,3 +50,7 @@ gtfs-xml,RocketRML,2,,,,OutOfMemory,,
 gtfs-csv,R2RML-F,0,31439.84,126.29,33661.05,50642660,0,39595300
 gtfs-csv,R2RML-F,1,34723.11,91.57,36978.19,50608440,0,39595300
 gtfs-csv,R2RML-F,2,33385.01,84.7,35907.43,47073948,0,39595300
+,,,,,,,,
+gtfs-csv,SDM-RDFizer,0,TimeOut,,,,,
+gtfs-csv,SDM-RDFizer,1,TimeOut,,,,,
+gtfs-csv,SDM-RDFizer,2,TimeOut,,,,,

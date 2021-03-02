@@ -37,9 +37,10 @@ def organize_data(data, engines, mappings):
 def plot(data, scale):
 
     # Create dataframe     
-    engines = ['carml', 'chimera', 'db2triples', 'ontop', 'morph-rdb', 'r2rml-f', 'rmlmapper', 'rmlstreamer', 'rocketrml', 'sdm-rdfizer']
+    #engines = ['carml', 'chimera', 'db2triples', 'ontop', 'morph-rdb', 'r2rml-f', 'rmlmapper', 'rmlstreamer', 'rocketrml', 'sdm-rdfizer']
+    engines = ['CARML', 'Chimera', 'DB2Triples', 'Ontop', 'Morph-RDB', 'R2RML-F', 'RMLMapper', 'RMLStreamer', 'RocketRML', 'SDM-RDFizer']
     mappings = ['gtfs-rdb', 'gtfs-csv', 'gtfs-xml', 'gtfs-json', 'gtfs-custom']
-    ordered_data = organize_data(data, engines, mappings)
+    ordered_data = organize_data(data, [x.lower() for x in engines], mappings)
 
     #print(ordered_data)
 
@@ -56,26 +57,26 @@ def plot(data, scale):
     r9 = [x + barWidth * 8 for x in r1]
     r10 = [x + barWidth * 9 for x in r1]
 
-    plt.bar(r1, ordered_data.values.tolist()[0], width=barWidth, color='#73D4B7',#73D4B7
-                label='carml')
-    plt.bar(r2, ordered_data.values.tolist()[1], width=barWidth, color='#A1FCDF',#A1FCDF
-                label='chimera')
-    plt.bar(r3, ordered_data.values.tolist()[2], width=barWidth, color='#FCD29F',#FCD29F
-                label='db2triples')
-    plt.bar(r4, ordered_data.values.tolist()[3], width=barWidth, color='#FCAB64',#FCAB64
-                label='ontop')
-    plt.bar(r5, ordered_data.values.tolist()[4], width=barWidth, color='#B1ACAA',#B1ACAA
-                label='morph-rdb')
-    plt.bar(r6, ordered_data.values.tolist()[5], width=barWidth, color='#F2BABA',#F2BABA
-                label='r2rml-f')   
-    plt.bar(r7, ordered_data.values.tolist()[6], width=barWidth, color='#A46593',#A46593
-                label='rmlmapper')
-    plt.bar(r8, ordered_data.values.tolist()[7], width=barWidth, color='#67396A',#67396A
-                label='rmlstreamer')
-    plt.bar(r9, ordered_data.values.tolist()[8], width=barWidth, color='#2862CC',#90AFE9
-                label='rocketrml')
-    plt.bar(r10, ordered_data.values.tolist()[9], width=barWidth, color='#90AFE9',#2862CC
-                label='sdm-rdfizer')
+    plt.bar(r1, ordered_data.values.tolist()[0], width=barWidth, color='#73D4B7',#042A2B
+                label='CARML')
+    plt.bar(r2, ordered_data.values.tolist()[1], width=barWidth, color='#A1FCDF',#5EB1BF
+                label='Chimera')
+    plt.bar(r3, ordered_data.values.tolist()[2], width=barWidth, color='#FCD29F',#D7D8D8
+                label='DB2Triples')
+    plt.bar(r4, ordered_data.values.tolist()[3], width=barWidth, color='#FCAB64',#CDEDF6
+                label='Ontop')
+    plt.bar(r5, ordered_data.values.tolist()[4], width=barWidth, color='#B1ACAA',#3DB9DB
+                label='Morph-RDB')
+    plt.bar(r6, ordered_data.values.tolist()[5], width=barWidth, color='#F2BABA',#3DB9DB
+                label='R2RML-F')   
+    plt.bar(r7, ordered_data.values.tolist()[6], width=barWidth, color='#A46593',#EF7B45
+                label='RMLMapper')
+    plt.bar(r8, ordered_data.values.tolist()[7], width=barWidth, color='#67396A',#D84727
+                label='RMLStreamer')
+    plt.bar(r9, ordered_data.values.tolist()[8], width=barWidth, color='#90AFE9',#F5AC8A
+                label='RocketRML')
+    plt.bar(r10, ordered_data.values.tolist()[9], width=barWidth, color='#2862CC',#E68C78
+                label='SDM-RDFizer')
 
     plt.xticks([r + barWidth*4.5  for r in range(len(r1))], mappings)
 
@@ -84,7 +85,7 @@ def plot(data, scale):
     plt.ylabel("Time (log$_{10}$(s))")
     plt.xlabel("Mapping")
  
-    plt.legend(engines, loc='upper right', prop={'size': 7})
+    plt.legend(engines, loc='upper right', prop={'size': 7}, bbox_to_anchor=(1.22, 1))
         
     plt.savefig("./figures/time_" + scale + ".pdf", bbox_inches='tight', dpi=700)
 

@@ -33,14 +33,14 @@ def organize_data(data, engines, mappings):
                 if str(average_data.iloc[i]['engine']).lower() == ordered_data.index[j] and str(average_data.iloc[i]['mapping']).lower() == ordered_data.columns[k]:
                     ordered_data.iloc[j,k] = average_data.iloc[i]['memory_max']
                     break
-    
-    return(ordered_data.replace(np.nan, 0))
+    return(ordered_data)
+    #return(ordered_data.replace(np.nan, 0))
 
 
 def plot(data, scale):
 
     #engines = ['carml', 'chimera', 'db2triples', 'ontop', 'morph-rdb', 'r2rml-f', 'rmlmapper', 'rmlstreamer', 'rocketrml', 'sdm-rdfizer']
-    engines = ['CARML', 'Chimera', 'DB2Triples', 'Ontop', 'Morph-RDB', 'R2RML-F', 'RMLMapper', 'RMLStreamer', 'RocketRML', 'SDM-RDFizer']
+    engines = ['DB2Triples', 'Ontop', 'Morph-RDB', 'R2RML-F', 'Chimera', 'RMLMapper', 'RocketRML', 'SDM-RDFizer']
     mappings = ['gtfs-rdb', 'gtfs-csv', 'gtfs-xml', 'gtfs-json', 'gtfs-custom']
     ordered_data = organize_data(data, [x.lower() for x in engines], mappings)
 
@@ -56,28 +56,28 @@ def plot(data, scale):
     r6 = [x + barWidth * 5 for x in r1]
     r7 = [x + barWidth * 6 for x in r1]
     r8 = [x + barWidth * 7 for x in r1]
-    r9 = [x + barWidth * 8 for x in r1]
-    r10 = [x + barWidth * 9 for x in r1]
+    #r9 = [x + barWidth * 8 for x in r1]
+    #r10 = [x + barWidth * 9 for x in r1]
 
-    plt.bar(r1, ordered_data.values.tolist()[0], width=barWidth, color='#73D4B7',#042A2B
-                label='CARML')
-    plt.bar(r2, ordered_data.values.tolist()[1], width=barWidth, color='#A1FCDF',#5EB1BF
-                label='Chimera')
-    plt.bar(r3, ordered_data.values.tolist()[2], width=barWidth, color='#FCD29F',#D7D8D8
+    #plt.bar(r1, ordered_data.values.tolist()[0], width=barWidth, color='#A1FCDF',#042A2B
+    #            label='CARML')
+    plt.bar(r1, ordered_data.values.tolist()[0], width=barWidth, color='#73D4B7',#FCD29F
                 label='DB2Triples')
-    plt.bar(r4, ordered_data.values.tolist()[3], width=barWidth, color='#FCAB64',#CDEDF6
+    plt.bar(r2, ordered_data.values.tolist()[1], width=barWidth, color='#FCD29F',#FCAB64
                 label='Ontop')
-    plt.bar(r5, ordered_data.values.tolist()[4], width=barWidth, color='#B1ACAA',#3DB9DB
+    plt.bar(r3, ordered_data.values.tolist()[2], width=barWidth, color='#FCAB64',#B1ACAA
                 label='Morph-RDB')
-    plt.bar(r6, ordered_data.values.tolist()[5], width=barWidth, color='#F2BABA',#3DB9DB
+    plt.bar(r4, ordered_data.values.tolist()[3], width=barWidth, color='#B1ACAA',#F2BABA
                 label='R2RML-F')   
-    plt.bar(r7, ordered_data.values.tolist()[6], width=barWidth, color='#A46593',#EF7B45
+    plt.bar(r5, ordered_data.values.tolist()[4], width=barWidth, color='#F2BABA',#73D4B7
+                label='Chimera')
+    plt.bar(r6, ordered_data.values.tolist()[5], width=barWidth, color='#A46593',#A46593
                 label='RMLMapper')
-    plt.bar(r8, ordered_data.values.tolist()[7], width=barWidth, color='#67396A',#D84727
-                label='RMLStreamer')
-    plt.bar(r9, ordered_data.values.tolist()[8], width=barWidth, color='#90AFE9',#F5AC8A
+    #plt.bar(r8, ordered_data.values.tolist()[7], width=barWidth, color='#67396A',#D84727
+    #            label='RMLStreamer')
+    plt.bar(r7, ordered_data.values.tolist()[6], width=barWidth, color='#90AFE9',#90AFE9
                 label='RocketRML')
-    plt.bar(r10, ordered_data.values.tolist()[9], width=barWidth, color='#2862CC',#E68C78
+    plt.bar(r8, ordered_data.values.tolist()[7], width=barWidth, color='#2862CC',#2862CC
                 label='SDM-RDFizer')
 
     plt.xticks([r + barWidth*4.5  for r in range(len(r1))], mappings)

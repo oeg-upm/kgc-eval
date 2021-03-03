@@ -54,3 +54,7 @@ gtfs-csv,R2RML-F,2,33385.01,84.7,35907.43,47073948,0,39595300
 gtfs-csv,SDM-RDFizer,0,TimeOut,,,,,
 gtfs-csv,SDM-RDFizer,1,TimeOut,,,,,
 gtfs-csv,SDM-RDFizer,2,TimeOut,,,,,
+,,,,,,,,
+gtfs-xml,SDM-RDFizer,0,1331.72,88.03,1243.12,33071636,0,39595300
+gtfs-xml,SDM-RDFizer,1,1259.91,44.38,1214.88,33039196,0,39595300
+gtfs-xml,SDM-RDFizer,2,1275.86,53.23,1221.92,41474928,0,39595300

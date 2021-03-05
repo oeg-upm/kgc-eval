@@ -74,9 +74,9 @@ def plot(data, scale):
                 label='RMLMapper')
     #plt.bar(r8, ordered_data.values.tolist()[7], width=barWidth, color='#67396A',#D84727
     #            label='RMLStreamer')
-    plt.bar(r8, ordered_data.values.tolist()[6], width=barWidth, color='#90AFE9',#90AFE9
+    plt.bar(r7, ordered_data.values.tolist()[6], width=barWidth, color='#90AFE9',#90AFE9
                 label='RocketRML')
-    plt.bar(r7, ordered_data.values.tolist()[7], width=barWidth, color='#2862CC',#2862CC
+    plt.bar(r8, ordered_data.values.tolist()[7], width=barWidth, color='#2862CC',#2862CC
                 label='SDM-RDFizer')
 
     plt.xticks([r + barWidth*4.5  for r in range(len(r1))], mappings)
@@ -96,7 +96,7 @@ def plot(data, scale):
 
 def handler():
 
-    scales = ['GTFS-1', 'GTFS-10', 'GTFS-100', 'GTFS-1000']
+    scales = ['GTFS-1', 'GTFS-10', 'GTFS-100']
     for scale in scales:
         plot(pd.read_csv("./data/Results - Time - " + scale + ".csv"), scale)
 

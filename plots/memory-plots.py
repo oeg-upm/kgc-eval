@@ -19,8 +19,6 @@ def organize_data(data, engines, mappings):
                 else:
                     av_memory_max = ((float(data.iloc[i]['memory_max']) + float(data.iloc[i+1]['memory_max']) + float(data.iloc[i+2]['memory_max']))/3)
                     average_data.loc[len(average_data)] = [data.iloc[i]['engine'], data.iloc[i]['mapping'], math.log10(av_memory_max)]    
-                #av_memory_max = ((data.iloc[i]['memory_max'] + data.iloc[i+1]['memory_max'] + data.iloc[i+2]['memory_max'])/3)/1000000
-                #average_data.loc[len(average_data)] = [data.iloc[i]['engine'], data.iloc[i]['mapping'], av_memory_max]
             else:
                 next
         else:
@@ -97,7 +95,7 @@ def plot(data, scale):
 
 def handler():
 
-    scales = ['GTFS-1', 'GTFS-10', 'GTFS-100', 'GTFS-1000']
+    scales = ['GTFS-1', 'GTFS-10', 'GTFS-100']
     for scale in scales:
         plot(pd.read_csv("./data/Results - Time - " + scale + ".csv"), scale)
 

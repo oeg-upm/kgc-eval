@@ -25,7 +25,7 @@ RML-based:
 - RocketRML v1.8.2
 - SDM-RDFizer v3.4
 - RMLStreamer v2.0
-- Chimera v2.0
+- Chimera v2.1
 
 ## Authors
 - Julián Arenas-Guerrero - julian.arenas.guerrero@upm.es (Ontology Engineering Group - UPM)

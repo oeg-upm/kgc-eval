@@ -53,6 +53,9 @@
           <camel:log loggingLevel="INFO" message="Converting GTFS to LinkedGTFS and back to GTFS"/>
           <camel:process id="attachGraph_conversion" ref="attach_graph"/>
           <camel:to uri="direct:lifting_component?timeout=0"/>
+          <camel:setHeader name="dump_format">
+        	<constant>ntriples</constant>
+      	  </camel:setHeader>
           <camel:process ref="graph_dumper"/>
           <camel:process ref="quit"/>
         </camel:when>

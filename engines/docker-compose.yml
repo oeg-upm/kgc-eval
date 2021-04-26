@@ -68,7 +68,7 @@ services:
       - mysql
   carml:
     container_name: carml
-    image: oegdataintegration/carml:0.3.1
+    image: oegdataintegration/carml:0.3.2
     volumes:
       - ../data:/data
       - ../results/carml:/results

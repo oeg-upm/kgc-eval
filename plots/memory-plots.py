@@ -38,13 +38,13 @@ def organize_data(data, engines, mappings):
 def plot(data, scale):
 
     #engines = ['carml', 'chimera', 'db2triples', 'ontop', 'morph-rdb', 'r2rml-f', 'rmlmapper', 'rmlstreamer', 'rocketrml', 'sdm-rdfizer']
-    engines = ['DB2Triples', 'Ontop', 'Morph-RDB', 'R2RML-F', 'RocketRML', 'SDM-RDFizer', 'Chimera', 'RMLMapper']
+    engines = ['DB2Triples', 'Ontop', 'Morph-RDB', 'R2RML-F', 'RocketRML', 'SDM-RDFizer', 'Chimera', 'RMLMapper', 'CARML']
     mappings = ['gtfs-rdb', 'gtfs-csv', 'gtfs-xml', 'gtfs-json', 'gtfs-custom']
     ordered_data = organize_data(data, [x.lower() for x in engines], mappings)
 
     #print(ordered_data)
 
-    barWidth = 0.09
+    barWidth = 0.11
 
     r1 = np.arange(len(ordered_data.columns))
     r2 = [x + barWidth for x in r1]
@@ -54,7 +54,7 @@ def plot(data, scale):
     r6 = [x + barWidth * 5 for x in r1]
     r7 = [x + barWidth * 6 for x in r1]
     r8 = [x + barWidth * 7 for x in r1]
-    #r9 = [x + barWidth * 8 for x in r1]
+    r9 = [x + barWidth * 8 for x in r1]
     #r10 = [x + barWidth * 9 for x in r1]
 
     plt.bar(r1, ordered_data.values.tolist()[0], width=barWidth, color='#F2BABA',#FCD29F
@@ -65,7 +65,7 @@ def plot(data, scale):
                 label='Morph-RDB')
     plt.bar(r4, ordered_data.values.tolist()[3], width=barWidth, color='#90AFE9',#F2BABA
                 label='R2RML-F')
-    plt.bar(r5, ordered_data.values.tolist()[4], width=barWidth, color='#73D4B7',#90AFE9
+    plt.bar(r5, ordered_data.values.tolist()[4], width=barWidth, color='#A1FCDF',#90AFE9
                 label='RocketRML')
     plt.bar(r6, ordered_data.values.tolist()[5], width=barWidth, color='#FCD29F',#2862CC
                 label='SDM-RDFizer')
@@ -73,6 +73,8 @@ def plot(data, scale):
                 label='Chimera')
     plt.bar(r8, ordered_data.values.tolist()[7], width=barWidth, color='#B1ACAA',#A46593
                 label='RMLMapper')
+    plt.bar(r9, ordered_data.values.tolist()[8], width=barWidth, color='#73D4B7',#A46593
+                label='CARML')
 
     plt.xticks([r + barWidth*4.5  for r in range(len(r1))], mappings, fontsize=12)
 
@@ -81,7 +83,7 @@ def plot(data, scale):
     plt.ylabel("Maximum memory (log$_{10}$(kB))", fontsize=12) #(log$_{10}$(kB))
     plt.xlabel("Mapping", fontsize=12)
  
-    plt.legend(engines, loc='lower center', prop={'size': 10}, ncol=4, bbox_to_anchor=(0.4, -0.28))
+    plt.legend(engines, loc='lower center', prop={'size': 10}, ncol=4, bbox_to_anchor=(0.4, -0.34))
         
     plt.savefig("./figures/memory_" + scale + ".pdf", bbox_inches='tight', dpi=700)
 

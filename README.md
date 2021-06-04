@@ -23,7 +23,7 @@ R2RML-based:
 
 RML-based:
 - RMLMapper v4.9.1
-- CARML v0.3.1
+- CARML v0.3.2
 - RocketRML v1.8.2
 - SDM-RDFizer v3.5
 - RMLStreamer v2.0

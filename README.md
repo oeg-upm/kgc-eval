@@ -42,7 +42,8 @@ Data can be directly download executing `bash scripts/download-data.sh`
 ### R2RML and RML test-cases
 We use the resources provided by the W3C community on KG-Construction (https://www.w3.org/community/kg-construct/) to run the R2RML and RML test-cases over the selected engines.
 
-
+## Results
+We created a comparative framework to gather and compare the information about the engines' features, availabe [here](https://github.com/oeg-upm/kgc-eval/tree/master/results/table); and tested the engines with the mentioned benchmark in terms of time and memory used. The raw data resulting from the evaluation is stored [here](https://github.com/oeg-upm/kgc-eval/tree/master/results/raw-data), and the resulting figures can be seen [here](https://github.com/oeg-upm/kgc-eval/tree/master/results/figures).
 
 ## Authors
 - Julián Arenas-Guerrero - julian.arenas.guerrero@upm.es (Ontology Engineering Group - UPM)

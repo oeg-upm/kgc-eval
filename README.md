@@ -8,7 +8,11 @@ We conduct an evaluation of KGC engines considering several R2RML and RML proces
   title = {{Knowledge Graph Construction with R2RML and RML: An ETL System-based Overview}},
   author = {Arenas-Guerrero, Julián and Scrocca, Mario and Iglesias-Molina, Ana and Toledo, Jhon and Pozo-Gilo, Luis and Doña, Daniel and Corcho, Oscar and Chaves-Fraga, David},
   booktitle = {Proceedings of the 2nd International Workshop on Knowledge Graph Construction},
-  year = {2021}
+  year = {2021},
+  series = {CEUR Workshop Proceedings},
+  publisher = {CEUR-WS.org},
+  volume = {2873},
+  url = {http://ceur-ws.org/Vol-2873/paper11.pdf},
 }
 ```
 

@@ -211,7 +211,7 @@ mappings:
     s: http://transport.linkeddata.es/madrid/metro/shape/$(shape_id)
     po:
       - [a, gtfs:Shape]
-      - [gtfs:shapePoint, http://transport.linkeddata.es/madrid/metro/shape_point/$(shape_id)-$(shape_pt_sequence)]
+      - [gtfs:shapePoint, http://transport.linkeddata.es/madrid/metro/shape_point/$(shape_id)-$(shape_pt_sequence)~iri]
   shapePoints:
     sources:
       - [/data/SHAPES.csv~csv]
